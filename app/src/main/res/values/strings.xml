@@ -97,6 +97,7 @@
     <string name="alreadyexceeded">Maximum offline cases reached! </string>
     <string name="select_one_case">Select atleast one case</string>
     <string name="synchedmsg">Case successfully synched to server</string>
+    <string name="property_technically">Is the Property Technically Acceptable</string>
     <string name="same">Same</string>
     <string name="servey_persence">Survey in presence of</string>
     <string name="plotno">Plot No</string>
@@ -147,6 +148,8 @@
     <string name="compound_permissiblearea">Document Area*</string>
     <string name="as_per_measurement">As Per Measurement*</string>
     <string name="as_per_docs">As Per Document*</string>
+    <string name="person_met_at_site">*Person Met at site</string>
+    <string name="appraoch_road_width">*Approach road width</string>
     <string name="measurement">Measurement</string>
     <string name="construction_details">Construction Details:</string>
     <string name="floors">#Floor(s)*</string>
@@ -236,6 +239,7 @@
     <string name="year_of_current_tenancy">Year of current tenancy</string>
     <string name="amenities">Amenities</string>
     <string name="rentalincome">Rental Income</string>
+    <string name="rental_info">Rental Information</string>
     <string name="nameoftenant">Name Of Tenant</string>
     <string name="wing_name">Wing Name</string>
     <string name="floor_height">Floor height</string>
@@ -483,7 +487,7 @@
     <string name="create_cases">Create Case</string>
     <string name="bank_name">Bank Name</string>
     <string name="sub_branch">Sub Branch</string>
-    <string name="bankNO">Finnone ID</string>
+    <string name="bankNO">Bank Ref No</string>
     <string name="case_admin">Case Admin</string>
     <string name="report_maker">Report Maker</string>
     <string name="case_transfer">Case Transfer</string>
@@ -526,6 +530,10 @@
     <string name="proposed_valuation">Proposed Valuation</string>
     <string name="deleted_successfully">Deleted SuccessFully</string>
     <string name="unable_to_delete">Unable to Delete File</string>
+
+    <string name="resident_usage">*% Residential Usage in Property</string>
+    <string name="commercial_usage">*% Commercial Usage in Property</string>
+    <string name="installation_favour_of">*Installation in favor of</string>
 
     <array name="compare">
         <item>Select</item>

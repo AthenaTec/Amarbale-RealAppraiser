@@ -45,6 +45,7 @@ import android.widget.ScrollView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.realappraiser.gharvalue.AppDatabase;
@@ -167,6 +168,8 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     CheckBox checkbox_same_as_doc_setback;
     @BindView(R.id.checkbox_plot_demarcated)
     CheckBox checkbox_plot_demarcated;
+    @BindView(R.id.checkbox_property_technically)
+    CheckBox checkbox_property_technically;
     @BindView(R.id.checkbox_isproperty_demolish)
     CheckBox checkbox_isproperty_demolish;
     @BindView(R.id.checkbox_property_within_muni)
@@ -194,6 +197,26 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     public static EditText editText_addr_site;
     @BindView(R.id.editText_landmark)
     EditText editText_landmark;
+
+    @BindView(R.id.editText_residential_usage)
+    TextInputEditText et_residential_usage;
+
+    @BindView(R.id.editText_commercial_usage)
+    TextInputEditText et_commercial_usage;
+
+    /*@BindView(R.id.editText_plotno)
+    TextInputEditText et_plotno;*/
+
+    @BindView(R.id.editText_installation_favour_of)
+    TextInputEditText et_installation_favour_of;
+
+    @BindView(R.id.et_person_met_at_site)
+    TextInputEditText et_person_met_at_site;
+
+    @BindView(R.id.et_approach_road_width)
+    TextInputEditText et_approach_road_width;
+
+
     @BindView(R.id.editText_servey_persence)
     EditText editText_survey_persence;
     @BindView(R.id.editText_plotno)
@@ -342,6 +365,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     // TODO TextView - Address
     @BindView(R.id.textview_address)
     TextView textview_address;
+
     @BindView(R.id.textview_save_top)
     TextView textview_save_top;
     @BindView(R.id.textview_save_bottom)
@@ -513,6 +537,9 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     // Todo spinner for more Info
 
     /* san Integration */
+
+    @BindView(R.id.et_rental_info)
+    TextInputEditText etRentalInfo;
     @BindView(R.id.textview_flooring_text)
     TextView textview_flooring_text;
     @BindView(R.id.textview_roofing_text)
@@ -616,6 +643,16 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     EditText et_flood_zone;
     @BindView(R.id.et_regulatory_zone)
     EditText et_regulatory_zone;
+
+    @BindView(R.id.editText_electricity_meter_no)
+    EditText et_electricity_meter_no;
+
+    @BindView(R.id.editText_tenant_name)
+    EditText et_tenant_name;
+
+    @BindView(R.id.editText_no_of_tenants)
+    EditText et_no_of_tenants;
+
     @BindView(R.id.checkbox_hill_slope)
     CheckBox checkbox_hill_slope;
 
@@ -659,6 +696,9 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     EditText et_soil_type;
     @BindView(R.id.checkbox_liquefiable)
     CheckBox checkbox_liquefiable;
+
+    @BindView(R.id.checkbox_property_identifiable)
+    CheckBox checkbox_property_identifiable;
     @BindView(R.id.et_construction_stage)
     EditText et_construction_stage;
 
@@ -701,6 +741,12 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 //    String property_type = "land";
 
     private String addrsite = "", address_per_doc = "", landmark = "";
+
+    /*Newly added fields*/
+
+    private String residential_usage = "",commercial_usage = "",installation_favour_of = "",person_met_at_site = "",approach_road_width = "";
+
+    private String residentialUsageInPropertyPerValue = "";
     private String surveypresence = "", plotno = "", approachcondition = "";
     private String localitycategory = "", classval = "", tenureOwnership = "";
     private String landapproval = "", propertyidentified = "", presentlyoccupied = "";
@@ -1185,6 +1231,9 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         if (Singleton.getInstance().indProperty.getIsSoilLiquefiable() != null) {
             checkbox_liquefiable.setChecked(Singleton.getInstance().indProperty.getIsSoilLiquefiable());
         }
+        if (Singleton.getInstance().indProperty.getIsPropertyIdentifiable() != null) {
+            checkbox_property_identifiable.setChecked(Singleton.getInstance().indProperty.getIsPropertyIdentifiable());
+        }
 
         if (!general.isEmpty(Singleton.getInstance().indProperty.getTypeofSeller())) {
             et_seller_type.setText(Singleton.getInstance().indProperty.getTypeofSeller());
@@ -1586,6 +1635,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         textview_document_setback.setTypeface(general.mediumtypeface());
         textview_actual_setback.setTypeface(general.mediumtypeface());
         textview_proximity.setTypeface(general.mediumtypeface());
+        et_residential_usage.setTypeface(general.mediumtypeface());
 
 
 
@@ -1628,6 +1678,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         checkbox_same_as_doc_dimension.setTypeface(general.regulartypeface());
         checkbox_same_as_doc_setback.setTypeface(general.regulartypeface());
         checkbox_plot_demarcated.setTypeface(general.regulartypeface());
+        checkbox_property_technically.setTypeface(general.regulartypeface());
         checkbox_isproperty_demolish.setTypeface(general.regulartypeface());
         checkbox_property_within_muni.setTypeface(general.regulartypeface());
         textview_condition_approad.setTypeface(general.regulartypeface());
@@ -2556,6 +2607,14 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
                 Singleton.getInstance().property.setPropertyAddressAtSite("");
             }
 
+           // residentialUsageInPropertyPerValue = residentialUsageInPropertyPercentage.getText().toString().trim();
+           /* if (!general.isEmpty(residentialUsageInPropertyPerValue)) {
+                Singleton.getInstance().property.setResidentialUsageInPropertyPercentage(Integer.valueOf(residentialUsageInPropertyPerValue));
+            } else {
+                Singleton.getInstance().property.setResidentialUsageInPropertyPercentage(Integer.valueOf(""));
+            }*/
+
+
             address_per_doc = editText_addr_perdoc.getText().toString().trim();
             if (!general.isEmpty(address_per_doc)) {
                 Singleton.getInstance().aCase.setPropertyAddress(address_per_doc);
@@ -2582,6 +2641,43 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             } else {
                 Singleton.getInstance().property.setLandmark("");
             }
+
+            residential_usage = et_residential_usage.getText().toString().trim();
+            if (!general.isEmpty(residential_usage)) {
+                Singleton.getInstance().property.setResidentialUsageInPropertyPercentage(Integer.parseInt(residential_usage));
+            }else{
+                Singleton.getInstance().property.setResidentialUsageInPropertyPercentage(0);
+            }
+
+            commercial_usage = et_commercial_usage.getText().toString().trim();
+            if (!general.isEmpty(commercial_usage)) {
+                Singleton.getInstance().property.setCommercialUsage(Integer.parseInt(commercial_usage));
+            }else{
+                Singleton.getInstance().property.setCommercialUsage(0);
+            }
+
+
+            installation_favour_of = et_installation_favour_of.getText().toString().trim();
+            if (!general.isEmpty(installation_favour_of)) {
+                Singleton.getInstance().property.setInstallationInFavourOf(installation_favour_of);
+            } else {
+                Singleton.getInstance().property.setInstallationInFavourOf("");
+            }
+
+            person_met_at_site = et_person_met_at_site.getText().toString().trim();
+            if (!general.isEmpty(person_met_at_site)) {
+                Singleton.getInstance().property.setPersonMetAtSite(person_met_at_site);
+            } else {
+                Singleton.getInstance().property.setPersonMetAtSite("");
+            }
+
+            approach_road_width = et_approach_road_width.getText().toString().trim();
+            if (!general.isEmpty(approach_road_width)) {
+                Singleton.getInstance().property.setApproachRoadWidth(Integer.parseInt(approach_road_width));
+            }else{
+                Singleton.getInstance().property.setApproachRoadWidth(0);
+            }
+
 
 
             surveypresence = editText_survey_persence.getText().toString().trim();
@@ -2939,6 +3035,24 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             } else {
                 Singleton.getInstance().property.setCoastalRegulatoryZone("");
             }
+            if (!general.isEmpty(et_electricity_meter_no.getText().toString())) {
+                Singleton.getInstance().property.setElectricityMetreNo(et_electricity_meter_no.getText().toString().trim());
+            } else {
+                Singleton.getInstance().property.setElectricityMetreNo("");
+            }
+            if (!general.isEmpty(et_tenant_name.getText().toString())) {
+                Singleton.getInstance().indProperty.setTenantName(et_tenant_name.getText().toString().trim());
+            } else {
+                Singleton.getInstance().indProperty.setTenantName("");
+            }
+
+            if (!general.isEmpty(et_no_of_tenants.getText().toString())) {
+                Singleton.getInstance().indProperty.setNoOfTenants(et_no_of_tenants.getText().toString().trim());
+            } else {
+                Singleton.getInstance().indProperty.setNoOfTenants("");
+            }
+
+
 
             Singleton.getInstance().property.setIsInHillSlope(checkbox_hill_slope.isChecked());
 
@@ -2952,6 +3066,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             boolean check_plodemarcate = checkbox_plot_demarcated.isChecked();
             boolean check_demolish = checkbox_isproperty_demolish.isChecked();
             boolean check_municipality = checkbox_property_within_muni.isChecked();
+            boolean checkboxPropertyTechnically = checkbox_property_technically.isChecked();
             Singleton.getInstance().property.setSameAsDocumentAddress(check_addr);
             Singleton.getInstance().property.setSameAsDocumentBoundary(check_boundary);
             Singleton.getInstance().property.setSameAsDocumentDimension(check_dimension);
@@ -2960,26 +3075,27 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             Singleton.getInstance().property.setIsPropertyInDemolitionList(check_demolish);
             Singleton.getInstance().property.setIsWithinMunicipalArea(check_municipality);
             Singleton.getInstance().property.setLatLongDetails(Singleton.getInstance().latlng_details);
+            Singleton.getInstance().property.setIsPropertyTechnicallyAcceptable(checkboxPropertyTechnically);
 
 
-         if (checkbox_isproperty_demolish.isChecked()) {
-             if (getRgDemoLish.getCheckedRadioButtonId() != -1) {
-                 int btn = getRgDemoLish.getCheckedRadioButtonId();
-                     if (btn == R.id.high) {
-                          Singleton.getInstance().property.setDemolitionListValue("High");
-                     } else if (btn == R.id.medium) {
-                         Singleton.getInstance().property.setDemolitionListValue("Medium");
-                     } else if (btn == R.id.low) {
-                         Singleton.getInstance().property.setDemolitionListValue("Low");
-                     } else {
-                         Singleton.getInstance().property.setDemolitionListValue("");
-                     }
-             } else {
-                 Singleton.getInstance().property.setDemolitionListValue("");
-             }
+            if (checkbox_isproperty_demolish.isChecked()) {
+                if (getRgDemoLish.getCheckedRadioButtonId() != -1) {
+                    int btn = getRgDemoLish.getCheckedRadioButtonId();
+                    if (btn == R.id.high) {
+                        Singleton.getInstance().property.setDemolitionListValue("High");
+                    } else if (btn == R.id.medium) {
+                        Singleton.getInstance().property.setDemolitionListValue("Medium");
+                    } else if (btn == R.id.low) {
+                        Singleton.getInstance().property.setDemolitionListValue("Low");
+                    } else {
+                        Singleton.getInstance().property.setDemolitionListValue("");
+                    }
+                } else {
+                    Singleton.getInstance().property.setDemolitionListValue("");
+                }
 
 
-         }
+            }
 
 
 
@@ -3571,6 +3687,9 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             editText_addr_site.setError(getResources().getString(R.string.err_addrsite));
             isvalid = false;
         }
+
+
+
         return isvalid;
     }
 
@@ -3597,7 +3716,8 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         String addr_site = editText_addr_site.getText().toString();
         if (!general.isEmpty(addr_site)) {
             editText_addr_site.setError(null);
-        } else {
+        } else
+        {
             editText_addr_site.requestFocus();
             editText_addr_site.setError(getResources().getString(R.string.err_addrsite));
 
@@ -3612,6 +3732,29 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
                 }
             }, 2000);
         }
+
+        if(String.valueOf(et_residential_usage.getText()).trim().isEmpty()){
+            et_residential_usage.requestFocus();
+            et_residential_usage.setError("Please Enter Resident Usage");
+        }
+        if(String.valueOf(et_commercial_usage.getText()).trim().isEmpty()){
+            et_commercial_usage.requestFocus();
+            et_commercial_usage.setError("Please Enter Commercial Usage");
+        }
+        if(String.valueOf(et_installation_favour_of.getText()).trim().isEmpty()){
+            et_installation_favour_of.requestFocus();
+            et_installation_favour_of.setError("Please Enter Installation Favour Of");
+        }
+        if(String.valueOf(et_person_met_at_site.getText()).trim().isEmpty()){
+            et_person_met_at_site.requestFocus();
+            et_person_met_at_site.setError("Please Enter Person Met At Site");
+        }
+        if(String.valueOf(et_approach_road_width.getText()).trim().isEmpty()){
+            et_approach_road_width.requestFocus();
+            et_approach_road_width.setError("Please Enter Approach Road Width");
+        }
+
+
     }
 
     // Broker number - Valiation Mobile number
@@ -4015,6 +4158,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
                     public void onTaskComplete(JsonRequestData requestData) {
                         general.hideloading();
                         if (requestData.isSuccessful()) {
+                            Log.e(TAG, "Getting Saved data: " + requestData.getResponse());
                             parseSaveCaseInspectionResponse(requestData.getResponse());
                         } else if (!requestData.isSuccessful() && (requestData.getResponseCode() == 400 || requestData.getResponseCode() == 401)) {
                             General.sessionDialog(getActivity());
@@ -4471,6 +4615,11 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             checkbox_same_as_doc_setback.setChecked(Singleton.getInstance().property.getSameAsDocumentSetBack());
         if (Singleton.getInstance().property.getPlotDemarcatedAtSite() != null)
             checkbox_plot_demarcated.setChecked(Singleton.getInstance().property.getPlotDemarcatedAtSite());
+
+        if(Singleton.getInstance().property.getIsPropertyTechnicallyAcceptable() != null){
+            checkbox_property_technically.setChecked(Singleton.getInstance().property.getIsPropertyTechnicallyAcceptable());
+        }
+
         if (Singleton.getInstance().property.getIsPropertyInDemolitionList() != null) {
             checkbox_isproperty_demolish.setChecked(Singleton.getInstance().property.getIsPropertyInDemolitionList());
             if (Singleton.getInstance().property.getIsPropertyInDemolitionList()) {
@@ -4482,16 +4631,16 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
                     String value = Singleton.getInstance().property.getDemolitionListValue();
                     RadioButton rbn = null;
                     if(value.equalsIgnoreCase("high")){
-                         rbn = getRgDemoLish.findViewById(R.id.high);
+                        rbn = getRgDemoLish.findViewById(R.id.high);
                     }else if(value.equalsIgnoreCase("medium")){
-                         rbn = getRgDemoLish.findViewById(R.id.medium);
+                        rbn = getRgDemoLish.findViewById(R.id.medium);
                     }else if(value.equalsIgnoreCase("low")){
-                         rbn = getRgDemoLish.findViewById(R.id.low);
+                        rbn = getRgDemoLish.findViewById(R.id.low);
                     }
                     if(rbn!=null)
-                    rbn.setChecked(true);
+                        rbn.setChecked(true);
                 }
-                } else {
+            } else {
                 llPropertyRbtn.setVisibility(View.GONE);
             }
         }
@@ -4500,6 +4649,8 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
         if (Singleton.getInstance().property.getIsWithinMunicipalArea() != null)
             checkbox_property_within_muni.setChecked(Singleton.getInstance().property.getIsWithinMunicipalArea());
+        if (Singleton.getInstance().property.getIsPropertyTechnicallyAcceptable() != null)
+            checkbox_property_technically.setChecked(Singleton.getInstance().property.getIsPropertyTechnicallyAcceptable());
         if (Singleton.getInstance().indProperty.getWhetherExpansionJointAvailable() != null)
             checkbox_expansion_joint.setChecked(Singleton.getInstance().indProperty.getWhetherExpansionJointAvailable());
         if (Singleton.getInstance().indProperty.getProjectedPartAvailable() != null)
@@ -4516,6 +4667,34 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             editText_addr_site.setText(Singleton.getInstance().property.getPropertyAddressAtSite());
         if (Singleton.getInstance().property.getLandmark() != null)
             editText_landmark.setText(Singleton.getInstance().property.getLandmark());
+
+
+        /* Newly added fields*/
+        if(et_residential_usage!=null && Singleton.getInstance().property.getResidentialUsageInPropertyPercentage() !=0)
+        et_residential_usage.setText(String.valueOf(Singleton.getInstance().property.getResidentialUsageInPropertyPercentage()));
+
+         if(Singleton.getInstance().property.getCommercialUsage() != 0)
+         et_commercial_usage.setText(String.valueOf(Singleton.getInstance().property.getCommercialUsage()));
+
+        /*if(Singleton.getInstance().property.getPlotNo()!=null &&
+                !general.isEmpty(Singleton.getInstance().property.getPlotNo()))
+         et_plotno.setText(Singleton.getInstance().property.getPlotNo());*/
+
+        if(Singleton.getInstance().property.getInstallationInFavourOf()!=null &&
+                !general.isEmpty(Singleton.getInstance().property.getInstallationInFavourOf()))
+            et_installation_favour_of.setText(Singleton.getInstance().property.getInstallationInFavourOf());
+
+        if(Singleton.getInstance().property.getPersonMetAtSite()!=null &&
+                !general.isEmpty(Singleton.getInstance().property.getPersonMetAtSite()))
+            et_person_met_at_site.setText(Singleton.getInstance().property.getPersonMetAtSite());
+
+
+        et_approach_road_width.setText(String.valueOf(Singleton.getInstance().property.getApproachRoadWidth()));
+
+
+
+
+
         if (Singleton.getInstance().property.getSurveyInPresenceOf() != null)
             editText_survey_persence.setText(Singleton.getInstance().property.getSurveyInPresenceOf());
         if (Singleton.getInstance().property.getPlotNo() != null)
@@ -4548,6 +4727,15 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
         if (!general.isEmpty(Singleton.getInstance().property.getCoastalRegulatoryZone())) {
             et_regulatory_zone.setText(Singleton.getInstance().property.getCoastalRegulatoryZone());
+        }
+        if (!general.isEmpty(Singleton.getInstance().property.getElectricityMetreNo())) {
+            et_electricity_meter_no.setText(Singleton.getInstance().property.getElectricityMetreNo());
+        }
+        if (!general.isEmpty(Singleton.getInstance().indProperty.getTenantName())) {
+            et_tenant_name.setText(Singleton.getInstance().indProperty.getTenantName());
+        }
+        if (!general.isEmpty(Singleton.getInstance().indProperty.getNoOfTenants())) {
+            et_no_of_tenants.setText(Singleton.getInstance().indProperty.getNoOfTenants());
         }
 
         if (Singleton.getInstance().property.getIsInHillSlope() != null) {
@@ -4878,6 +5066,13 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         if (!general.isEmpty(Singleton.getInstance().property.getSpecialRemarks())) {
             editText_special_remarks.setText(Singleton.getInstance().property.getSpecialRemarks().trim());
         }
+        //Rental Information
+        if (!general.isEmpty(Singleton.getInstance().indProperty.getRentalIncome())) {
+            etRentalInfo.setText(Singleton.getInstance().indProperty.getRentalIncome().trim());
+        }
+        Log.e("other_save", "rentalinformation getting data" + Singleton.getInstance().indProperty.getRentalIncome());
+
+
         // municipal_ward
         if (!general.isEmpty(Singleton.getInstance().property.getMunicipalWard())) {
             editText_municipal_ward.setText(Singleton.getInstance().property.getMunicipalWard().trim());
@@ -6071,6 +6266,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
         Singleton.getInstance().indProperty.setIsConstructionDoneasPerSanctionedPlan(checkbox_sanctioned_plan.isChecked());
         Singleton.getInstance().indProperty.setIsSoilLiquefiable(checkbox_liquefiable.isChecked());
+        Singleton.getInstance().indProperty.setIsPropertyIdentifiable(checkbox_property_identifiable.isChecked());
 
 
         if (!general.isEmpty(et_seller_type.getText().toString())) {
@@ -6147,6 +6343,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             Singleton.getInstance().property.setMunicipalWard("");
         }
         Log.e("other_save", "municipal_ward: " + Singleton.getInstance().property.getMunicipalWard());
+
         // More Info - taluka_mandal_tehsil
         String taluka_mandal_tehsil = editText_taluka_mandal_tehsil.getText().toString();
         if (!general.isEmpty(taluka_mandal_tehsil)) {
@@ -6270,6 +6467,17 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             Singleton.getInstance().indProperty.setWingName("");
         }
         Log.e("other_save", "wing_name: " + Singleton.getInstance().indProperty.getWingName());
+
+
+        String etRental = etRentalInfo.getText().toString().trim();
+        if (!general.isEmpty(etRental)) {
+            Singleton.getInstance().indProperty.setRentalIncome(etRental);
+        } else {
+            Singleton.getInstance().indProperty.setRentalIncome("");
+        }
+        Log.e("other_save", "rentalIncome " + Singleton.getInstance().indProperty.getRentalIncome());
+
+
         // More Info - floor_height
         String floor_height = editText_floor_height.getText().toString();
         if (!general.isEmpty(floor_height)) {

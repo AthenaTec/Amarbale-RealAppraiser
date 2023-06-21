@@ -230,9 +230,9 @@
                 android:layout_height="match_parent"
                 android:background="@null" />-->
 
-           <!-- <ImageView
-                style="@style/StyledImagedown_large"
-                android:layout_marginTop="@dimen/height_8" />-->
+            <!-- <ImageView
+                 style="@style/StyledImagedown_large"
+                 android:layout_marginTop="@dimen/height_8" />-->
 
         </LinearLayout>
 
@@ -403,7 +403,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -535,8 +535,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginBottom="@dimen/height_3"
-        android:layout_marginTop="@dimen/height_3"
-        android:background="@color/line"></View>
+        android:background="@color/line"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -830,7 +829,7 @@
             android:layout_marginRight="@dimen/height_30"
             android:layout_weight="1.2"
             android:layout_marginBottom="@dimen/_3sdp"
-           >
+            >
 
 
             <TextView
@@ -848,9 +847,9 @@
                 android:id="@+id/spinner_realizable"
                 android:background="@null" />-->
 
-          <!--  <ImageView
-                style="@style/StyledImagedown_large"
-                android:layout_marginTop="@dimen/height_6" />-->
+            <!--  <ImageView
+                  style="@style/StyledImagedown_large"
+                  android:layout_marginTop="@dimen/height_6" />-->
 
         </LinearLayout>
 
@@ -914,9 +913,9 @@
                   android:layout_height="match_parent"
                   android:background="@null" />-->
 
-           <!-- <ImageView
-                style="@style/StyledImagedown_large"
-                android:layout_marginTop="@dimen/height_6" />-->
+            <!-- <ImageView
+                 style="@style/StyledImagedown_large"
+                 android:layout_marginTop="@dimen/height_6" />-->
 
         </LinearLayout>
 

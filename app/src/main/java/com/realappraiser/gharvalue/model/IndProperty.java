@@ -95,6 +95,17 @@ public class IndProperty {
     @Expose
     @ColumnInfo(name = "rentalIncome")
     private String rentalIncome;
+
+    @SerializedName("TenantName")
+    @Expose
+    @ColumnInfo(name = "TenantName")
+    private String TenantName;
+
+    @SerializedName("NoOfTenants")
+    @Expose
+    @ColumnInfo(name = "NoOfTenants")
+    private String NoOfTenants;
+
     @SerializedName("Basement")
     @Expose
     @ColumnInfo(name = "Basement")
@@ -296,6 +307,8 @@ public class IndProperty {
     @ColumnInfo(name = "IsConstructionDoneasPerSanctionedPlan")
     private Boolean isConstructionDoneasPerSanctionedPlan;
 
+
+
     @SerializedName("TypeofSeller")
     @Expose
     @ColumnInfo(name = "TypeofSeller")
@@ -356,6 +369,11 @@ public class IndProperty {
     @ColumnInfo(name = "DescriptionofConstructionStage")
     private String descriptionofConstructionStage;
 
+    @SerializedName("IsPropertyIdentifiable")
+    @Expose
+    @ColumnInfo(name = "IsPropertyIdentifiable")
+    private Boolean IsPropertyIdentifiable;
+
 
     @SerializedName("UnitBoundryPerActEast")
     @Expose
@@ -396,6 +414,11 @@ public class IndProperty {
     @Expose
     @ColumnInfo(name = "UnitBoundryPerDocSouth")
     private String UnitBoundryPerDocSouth ;
+
+    @SerializedName("RentalInformation")
+    @Expose
+    @ColumnInfo(name = "RentalInformation")
+    private String RentalInformation ;
 
 
     public Integer getTypeofMasonryId() {
@@ -1088,5 +1111,38 @@ public class IndProperty {
 
     public void setNoOfLiftInBuilding(String noOfLiftInBuilding) {
         this.noOfLiftInBuilding = noOfLiftInBuilding;
+    }
+
+    public String getRentalInformation() {
+        return RentalInformation;
+    }
+
+    public void setRentalInformation(String rentalInformation) {
+        RentalInformation = rentalInformation;
+    }
+
+
+    public Boolean getIsPropertyIdentifiable() {
+        return IsPropertyIdentifiable;
+    }
+
+    public void setIsPropertyIdentifiable(Boolean propertyIdentifiable) {
+        IsPropertyIdentifiable = propertyIdentifiable;
+    }
+
+    public String getTenantName() {
+        return TenantName;
+    }
+
+    public void setTenantName(String tenantName) {
+        TenantName = tenantName;
+    }
+
+    public String getNoOfTenants() {
+        return NoOfTenants;
+    }
+
+    public void setNoOfTenants(String noOfTenants) {
+        NoOfTenants = noOfTenants;
     }
 }

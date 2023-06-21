@@ -662,7 +662,7 @@ public class FragmentValuationPenthouse extends Fragment implements RatePopupupI
         if (property_type.equalsIgnoreCase("flat")) {
             linear_penthouse_terrace_row.setVisibility(View.GONE);
         } else {
-            linear_penthouse_terrace_row.setVisibility(View.VISIBLE);
+            linear_penthouse_terrace_row.setVisibility(View.GONE);
         }
     }
 

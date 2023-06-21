@@ -39,6 +39,7 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.gson.Gson;
 import com.google.gson.internal.LinkedTreeMap;
 import com.realappraiser.gharvalue.AppDatabase;
@@ -150,6 +151,13 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
     // TextView textview_comp_total;
     @BindView(R.id.textview_total)
     TextView textview_total;
+
+    @BindView(R.id.et_actual_fsi)
+    TextInputEditText etActualFsi;
+
+    @BindView(R.id.et_allowable_fsi)
+    TextInputEditText etAllowableFsi;
+
     //@BindView(R.id.textview_doc_total)
     @SuppressLint("StaticFieldLeak")
     public static TextView textview_doc_total;
@@ -1428,6 +1436,12 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
             if (!general.isEmpty(Singleton.getInstance().indProperty.getFloorDetails()))
                 editText_Floor_details.setText(Singleton.getInstance().indProperty.getFloorDetails());
 
+            if(Singleton.getInstance().property.getActualFSIatSite() != 0){
+                etActualFsi.setText(String.valueOf(Singleton.getInstance().property.getActualFSIatSite()));
+            }
+            if(Singleton.getInstance().property.getAllowableFSI() != 0){
+                etAllowableFsi.setText(String.valueOf(Singleton.getInstance().property.getAllowableFSI()));
+            }
 
             int areaUnit = Singleton.getInstance().indProperty.getMeasuredLandAreaUnit();
             if (areaUnit != 0)
@@ -1499,6 +1513,20 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
                 Singleton.getInstance().indProperty.setAvgPercentageCompletion(textview_comp_total.getText().toString());
                 Singleton.getInstance().indProperty.setDocumentFloorAreaTotal(textview_doc_total.getText().toString());
                 Singleton.getInstance().indProperty.setMeasuredFloorAreaTotal(textview_actual_total.getText().toString());
+
+                /*Saving Actual and allowable value of fsi*/
+                if(!etActualFsi.getText().toString().trim().isEmpty()){
+                    Singleton.getInstance().property.setActualFSIatSite(Integer.valueOf(etActualFsi.getText().toString()));
+                }else{
+                    Singleton.getInstance().property.setActualFSIatSite(0);
+                }
+                if(!etAllowableFsi.getText().toString().trim().isEmpty()){
+                    Singleton.getInstance().property.setAllowableFSI(Integer.valueOf(etAllowableFsi.getText().toString()));
+                }else{
+                    Singleton.getInstance().property.setAllowableFSI(0);
+                }
+
+
 
                 /*  *************
                  * CheckBox values view

@@ -52,6 +52,20 @@ public class SubBranchModel {
         @SerializedName("SubBranch")
         @Expose
         private String subBranch;
+        @SerializedName("SubbranchName")
+        @Expose
+        private String SubbranchName;
+
+        @SerializedName("Lat")
+        @Expose
+        private Float lat;
+        @SerializedName("Long")
+        @Expose
+        private Float _long;
+
+        @SerializedName("SubbranchID")
+        @Expose
+        private int SubbranchID;
         @SerializedName("ModifiedOn")
         @Expose
         private String modifiedOn;
@@ -62,10 +76,9 @@ public class SubBranchModel {
         @Expose
         private Object status;
 
-        public Datum(Integer id, Integer agencyBranchId, String subBranch) {
-            this.id = id;
-            this.agencyBranchId = agencyBranchId;
-            this.subBranch = subBranch;
+        public Datum(String subbranchName,int subbranchID) {
+            this.SubbranchName = subbranchName;
+           // this.SubbranchID = subbranchID;
         }
 
         public Integer getId() {
@@ -120,6 +133,38 @@ public class SubBranchModel {
         @Override
         public String toString() {
             return subBranch ;
+        }
+
+        public String getSubbranchName() {
+            return SubbranchName;
+        }
+
+        public void setSubbranchName(String subbranchName) {
+            SubbranchName = subbranchName;
+        }
+
+        public int getSubbranchID() {
+            return SubbranchID;
+        }
+
+        public void setSubbranchID(int subbranchID) {
+            SubbranchID = subbranchID;
+        }
+
+        public Float getLat() {
+            return lat;
+        }
+
+        public void setLat(Float lat) {
+            this.lat = lat;
+        }
+
+        public Float get_long() {
+            return _long;
+        }
+
+        public void set_long(Float _long) {
+            this._long = _long;
         }
     }
 }

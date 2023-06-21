@@ -125,7 +125,7 @@ public class RequestParam {
 
     public static String GetSubBranches(JsonRequestData jsonRequestData){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(jsonRequestData.getInitQueryUrl()).newBuilder();
-        urlBuilder.addQueryParameter("agencyBranchId", jsonRequestData.getAgencyId());
+       // urlBuilder.addQueryParameter("agencyBranchId", jsonRequestData.getAgencyId());
         return urlBuilder.build().toString();
     }
 

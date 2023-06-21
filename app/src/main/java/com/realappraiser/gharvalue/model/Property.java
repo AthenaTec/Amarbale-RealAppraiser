@@ -64,6 +64,36 @@ public class Property {
     @ColumnInfo(name = "DemolitionListValue")
     private String demolitionListValue;
 
+    @SerializedName("IsPropertyTechnicallyAcceptable")
+    @Expose
+    @ColumnInfo(name = "IsPropertyTechnicallyAcceptable")
+    private Boolean isPropertyTechnicallyAcceptable;
+
+    @SerializedName("ResidentialUsageInPropertyPercentage")
+    @Expose
+    @ColumnInfo(name = "ResidentialUsageInPropertyPercentage")
+    private int ResidentialUsageInPropertyPercentage;
+
+    @SerializedName("CommercialUsageInPropertyPercentage")
+    @Expose
+    @ColumnInfo(name = "CommercialUsageInPropertyPercentage")
+    private int CommercialUsage;
+
+    @SerializedName("InstallationInFavourOf")
+    @Expose
+    @ColumnInfo(name = "InstallationInFavourOf")
+    private String InstallationInFavourOf;
+
+    @SerializedName("PersonMetAtSite")
+    @Expose
+    @ColumnInfo(name = "PersonMetAtSite")
+    private String PersonMetAtSite;
+
+    @SerializedName("ApproachRoadWidth")
+    @Expose
+    @ColumnInfo(name = "ApproachRoadWidth")
+    private int ApproachRoadWidth;
+
 
     @SerializedName("VillageName")
     @Expose
@@ -792,6 +822,21 @@ public class Property {
     @Expose
     @ColumnInfo(name = "CoastalRegulatoryZone")
     private String coastalRegulatoryZone;
+
+    @SerializedName("ElectricityMetreNo")
+    @Expose
+    @ColumnInfo(name = "ElectricityMetreNo")
+    private String ElectricityMetreNo;
+
+    @SerializedName("ActualFSIatSite")
+    @Expose
+    @ColumnInfo(name = "ActualFSIatSite")
+    private int ActualFSIatSite;
+
+    @SerializedName("AllowableFSI")
+    @Expose
+    @ColumnInfo(name = "AllowableFSI")
+    private int AllowableFSI;
 
 
 
@@ -2318,5 +2363,77 @@ public class Property {
 
     public void setDemolitionListValue(String demolitionListValue) {
         this.demolitionListValue = demolitionListValue;
+    }
+
+    public Boolean getIsPropertyTechnicallyAcceptable() {
+        return isPropertyTechnicallyAcceptable;
+    }
+
+    public void setIsPropertyTechnicallyAcceptable(Boolean isPropertyTechnicallyAcceptable) {
+        this.isPropertyTechnicallyAcceptable = isPropertyTechnicallyAcceptable;
+    }
+
+    public int getResidentialUsageInPropertyPercentage() {
+        return ResidentialUsageInPropertyPercentage;
+    }
+
+    public void setResidentialUsageInPropertyPercentage(int residentialUsageInPropertyPercentage) {
+        ResidentialUsageInPropertyPercentage = residentialUsageInPropertyPercentage;
+    }
+
+    public int getCommercialUsage() {
+        return CommercialUsage;
+    }
+
+    public void setCommercialUsage(int commercialUsage) {
+        CommercialUsage = commercialUsage;
+    }
+
+    public String getInstallationInFavourOf() {
+        return InstallationInFavourOf;
+    }
+
+    public void setInstallationInFavourOf(String installationInFavourOf) {
+        InstallationInFavourOf = installationInFavourOf;
+    }
+
+    public String getPersonMetAtSite() {
+        return PersonMetAtSite;
+    }
+
+    public void setPersonMetAtSite(String personMetAtSite) {
+        PersonMetAtSite = personMetAtSite;
+    }
+
+    public int getApproachRoadWidth() {
+        return ApproachRoadWidth;
+    }
+
+    public void setApproachRoadWidth(int approachRoadWidth) {
+        ApproachRoadWidth = approachRoadWidth;
+    }
+
+    public int getActualFSIatSite() {
+        return ActualFSIatSite;
+    }
+
+    public void setActualFSIatSite(int actualFSIatSite) {
+        ActualFSIatSite = actualFSIatSite;
+    }
+
+    public int getAllowableFSI() {
+        return AllowableFSI;
+    }
+
+    public void setAllowableFSI(int allowableFSI) {
+        AllowableFSI = allowableFSI;
+    }
+
+    public String getElectricityMetreNo() {
+        return ElectricityMetreNo;
+    }
+
+    public void setElectricityMetreNo(String electricityMetreNo) {
+        ElectricityMetreNo = electricityMetreNo;
     }
 }

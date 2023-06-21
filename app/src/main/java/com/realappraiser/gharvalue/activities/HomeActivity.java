@@ -64,6 +64,7 @@ import com.realappraiser.gharvalue.adapter.CloseCaseAdapter;
 import com.realappraiser.gharvalue.adapter.OfflineCaseAdapter;
 import com.realappraiser.gharvalue.adapter.OfflineCaseCheckboxAdapter;
 import com.realappraiser.gharvalue.adapter.OpenCaseAdapter;
+import com.realappraiser.gharvalue.adapter.SubBranchAdapter;
 import com.realappraiser.gharvalue.communicator.DataModel;
 import com.realappraiser.gharvalue.communicator.DataResponse;
 import com.realappraiser.gharvalue.communicator.JsonRequestData;
@@ -1697,10 +1698,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             shimmerHomeView.setVisibility(View.VISIBLE);
             parentLayout.setVisibility(View.GONE);
 
-            String url = general.ApiBaseUrl() + SettingsUtils.AgencySubBranches;
+            String url = general.ApiBaseUrl() + SettingsUtils.GetSubBranchNewCase;
             JsonRequestData requestData = new JsonRequestData();
             requestData.setInitQueryUrl(url);
-            requestData.setAgencyId(SettingsUtils.getInstance().getValue(SettingsUtils.BranchId, ""));
+            //requestData.setAgencyId(SettingsUtils.getInstance().getValue(SettingsUtils.BranchId, ""));
             requestData.setUrl(RequestParam.GetSubBranches(requestData));
             requestData.setAuthToken(SettingsUtils.getInstance().getValue(SettingsUtils.KEY_TOKEN, ""));
 
@@ -1873,7 +1874,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         spSubBranch.setAdapter(arrayAdapter4);*/
 
 
-       // initSubBranch(tSubBranch);
+        initSubBranch(tSubBranch);
 
         initCaseAdimn(spCaseAdmin);
 
@@ -1919,9 +1920,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         else if (spBankName.getSelectedItemPosition() == 0)
             general.customToast("Choose bank!", HomeActivity.this);
         else if (etBankNo.getText().toString() == null || etBankNo.getText().toString().isEmpty() || etBankNo.getText().toString().length() < 1)
-            general.customToast("Enter Finnone ID!", HomeActivity.this);
-        /*else if (spSubBranch.isEmpty())
-            general.customToast("Choose the sub-branch!", HomeActivity.this);*/
+            general.customToast("Enter Bank Ref No!", HomeActivity.this);
+        else if (spSubBranch.isEmpty())
+            general.customToast("Choose the sub-branch!", HomeActivity.this);
         else if (spCaseAdmin.isEmpty())
             general.customToast("Choose case admin!", HomeActivity.this);
         else if (spReportMaker.isEmpty())
@@ -1943,9 +1944,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
             int subBranchId = 0;
 
-           /* if (subBranchNameId != -1) {
+            if (subBranchNameId != -1) {
                 subBranchId = subBranchNameId;
-            }*/
+            }
 
             String bankRefNo = "";
 
@@ -1981,7 +1982,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
            /* if (subBranchId > 0) requestData.setSubBranchId("" + subBranchId);
             else requestData.setSubBranchId("");*/
-            requestData.setSubBranchId("");
+           // requestData.setSubBranchId(bankId);
 
             requestData.setBankRefNo(bankRef);
             requestData.setRequestBody(RequestParam.CreateCaseNewRequestParams(requestData));
@@ -2965,7 +2966,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 EditText editText = subBranchDialog.findViewById(R.id.editText_of_searchableSpinner);
                 ListView listView = subBranchDialog.findViewById(R.id.listView_of_searchableSpinner);
                 //array adapter
-                ArrayAdapter<SubBranchModel.Datum> arrayAdapter = new ArrayAdapter<SubBranchModel.Datum>(HomeActivity.this, R.layout.row_spinner_item_popup, subBranchList);
+                ArrayAdapter<SubBranchModel.Datum> arrayAdapter = new SubBranchAdapter(HomeActivity.this,  subBranchList);
                 listView.setAdapter(arrayAdapter);
 
                 ImageView closeBtn = subBranchDialog.findViewById(R.id.close);
@@ -2994,9 +2995,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                        tSubBranch.setText(arrayAdapter.getItem(i).getSubBranch());
-                        subBranchName = arrayAdapter.getItem(i).getSubBranch();
-                        subBranchNameId = arrayAdapter.getItem(i).getId();
+                        tSubBranch.setText(arrayAdapter.getItem(i).getSubbranchName());
+                        subBranchName = arrayAdapter.getItem(i).getSubbranchName();
+                        subBranchNameId = arrayAdapter.getItem(i).getSubbranchID();
                         subBranchDialog.dismiss();
                     }
                 });

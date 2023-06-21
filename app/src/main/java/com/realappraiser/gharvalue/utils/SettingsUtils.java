@@ -48,6 +48,8 @@ public class SettingsUtils {
     public static final String EmployeeBranches = "/Api/Login/app_GetEmployeeBranches";
     public static final String AgencySubBranches = "/Api/BankBranch/app_GetSubBranches";
 
+    public static  final String GetSubBranchNewCase = "/api/Case/LoadSubbranch";
+
     public static final String CurrentServer = "/api/Utililty/app_AuthenticateAPI";
     public static final String Login = "/api/Login/app_AuthenticateUser"; // for kakode
     public static final String Login_STORE = "/api/Login/app_AuthenticateUser_Store"; // for kakode

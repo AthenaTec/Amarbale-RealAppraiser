@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent" >
+<TextView
+    android:id="@+id/subBranchName"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text=""
+    android:singleLine="true"
+    android:textColor="@color/font_text"
+    android:textSize="@dimen/font_medium"
+    android:maxLines="1"
+    android:paddingBottom="@dimen/_5sdp"
+    android:paddingEnd="10dp"
+    android:paddingLeft="@dimen/height_5"
+    android:paddingStart="2dp"
+    android:paddingTop="@dimen/_10sdp"
+    />
+</LinearLayout>

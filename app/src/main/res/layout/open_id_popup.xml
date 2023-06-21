@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/control_padding"
             android:paddingLeft="16dp"
-            android:text="Fin Id : "
+            android:text="Bank Ref No : "
             android:textColor="@color/font_1"
             android:textSize="16sp"
             android:textStyle="normal" />
