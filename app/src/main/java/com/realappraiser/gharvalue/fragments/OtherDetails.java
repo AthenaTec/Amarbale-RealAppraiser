@@ -349,6 +349,51 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     @BindView(R.id.id_radio_separatecompound_no)
     RadioButton id_radio_separatecompound_no;
 
+    //actual boundary
+    @BindView(R.id.id_rg_east)
+    RadioGroup rgEast;
+
+    @BindView(R.id.id_rb_east_yes)
+    RadioButton rbEastYes;
+    @BindView(R.id.id_rb_east_no)
+    RadioButton rbEastNo;
+
+    @BindView(R.id.et_remark_east)
+    EditText edRemarkEast;
+
+
+    @BindView(R.id.id_rg_west)
+    RadioGroup rgWest;
+    @BindView(R.id.id_rb_west_yes)
+    RadioButton rbWestYes;
+    @BindView(R.id.id_rb_west_no)
+    RadioButton rbWestNo;
+
+    @BindView(R.id.et_remark_west)
+    EditText edRemarkWest;
+
+
+    @BindView(R.id.id_rg_north)
+    RadioGroup rgNorth;
+    @BindView(R.id.id_rb_north_yes)
+    RadioButton rbNorthYes;
+    @BindView(R.id.id_rb_north_no)
+    RadioButton rbNorthNo;
+
+    @BindView(R.id.et_remark_north)
+    EditText edRemarkNorth;
+
+
+    @BindView(R.id.id_rg_south)
+    RadioGroup rgSouth;
+    @BindView(R.id.id_rb_south_yes)
+    RadioButton rbSouthYes;
+    @BindView(R.id.id_rb_south_no)
+    RadioButton rbSouthNo;
+
+    @BindView(R.id.et_remark_south)
+    EditText edRemarkSouth;
+
 
     boolean is_more_visible = false;
     boolean is_address_visible = false;
@@ -921,6 +966,8 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         checkbox_dimension();
         checkbox_setback();
 
+        radio_ActualBoundary();
+
         // TODO -  call the mandatory_valiadation
         if (Singleton.getInstance().enable_validation_error) {
             set_mandatory_address();
@@ -1309,7 +1356,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         if ((general.isEmpty(editText_db_east_str)) && (general.isEmpty(editText_db_west_str)) && (general.isEmpty(editText_db_north_str)) && (general.isEmpty(editText_db_south_str))) {
             checkbox_same_as_doc_boundary.setVisibility(View.INVISIBLE);
         } else {
-            checkbox_same_as_doc_boundary.setVisibility(View.VISIBLE);
+            checkbox_same_as_doc_boundary.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -1320,6 +1367,73 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             checkbox_same_as_doc_dimension.setVisibility(View.VISIBLE);
         }
     }
+
+    private void radio_ActualBoundary(){
+        rgEast.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.id_rb_east_yes){
+                    edRemarkEast.setVisibility(View.GONE);
+                    edRemarkEast.setText("");
+                    if(!editText_db_east.getText().toString().trim().isEmpty())
+                    editText_ab_east.setText(editText_db_east.getText().toString().trim());
+                }else if(checkedId == R.id.id_rb_east_no){
+                    edRemarkEast.setVisibility(View.VISIBLE);
+                    editText_ab_east.setText("");
+                }
+            }
+        });
+
+        rgWest.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.id_rb_west_yes){
+                    edRemarkWest.setVisibility(View.GONE);
+                    edRemarkWest.setText("");
+                    if(!editText_db_west.getText().toString().trim().isEmpty())
+                        editText_ab_west.setText(editText_db_west.getText().toString().trim());
+                }else if(checkedId == R.id.id_rb_west_no){
+                    edRemarkWest.setVisibility(View.VISIBLE);
+                    editText_ab_west.setText("");
+                }
+            }
+        });
+
+        rgNorth.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.id_rb_north_yes){
+                    edRemarkNorth.setVisibility(View.GONE);
+                    edRemarkNorth.setText("");
+                    if(!editText_db_north.getText().toString().trim().isEmpty())
+                        editText_ab_north.setText(editText_db_north.getText().toString().trim());
+                }else if(checkedId == R.id.id_rb_north_no){
+                    edRemarkNorth.setVisibility(View.VISIBLE);
+                    editText_ab_north.setText("");
+                }
+            }
+        });
+
+        rgSouth.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if(checkedId == R.id.id_rb_south_yes){
+                    edRemarkSouth.setVisibility(View.GONE);
+                    edRemarkSouth.setText("");
+                    if(!editText_db_south.getText().toString().trim().isEmpty())
+                        editText_ab_south.setText(editText_db_south.getText().toString().trim());
+                }else if(checkedId == R.id.id_rb_south_no){
+                    edRemarkSouth.setVisibility(View.VISIBLE);
+                    editText_ab_south.setText("");
+                }
+            }
+        });
+    }
+
 
     private void checkbox_setback() {
         if ((general.isEmpty(editText_ds_front_str)) && (general.isEmpty(editText_ds_left_str)) && (general.isEmpty(editText_ds_right_str)) && (general.isEmpty(editText_ds_rear_str))) {
@@ -1787,6 +1901,8 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         checkbox_same_as_doc_boundary.setOnCheckedChangeListener(this);
         checkbox_same_as_doc_dimension.setOnCheckedChangeListener(this);
         checkbox_same_as_doc_setback.setOnCheckedChangeListener(this);
+
+
 
         /******
          * Set the property category type
@@ -3119,6 +3235,72 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
 
         }
+
+        getActualBoundaryData();
+    }
+
+    private void getActualBoundaryData(){
+        if(rbEastYes.isChecked())
+        {
+            Singleton.getInstance().property.setSameasDocumentBoundaryEast(1);
+            Singleton.getInstance().property.setEastBoundaryremarks("");
+        }
+        else {
+            Singleton.getInstance().property.setSameasDocumentBoundaryEast(0);
+            if(!edRemarkEast.getText().toString().trim().isEmpty()){
+                Singleton.getInstance().property.setEastBoundaryremarks(edRemarkEast.getText().toString().trim());
+            }else{
+                Singleton.getInstance().property.setEastBoundaryremarks("");
+            }
+        }
+        Log.e("East Boundary","Remark"+Singleton.getInstance().property.getEastBoundaryremarks());
+        Log.e("East Boundary","SameasBoundary"+Singleton.getInstance().property.getSameasDocumentBoundaryEast());
+
+
+        if(rbWestYes.isChecked())
+        {
+            Singleton.getInstance().property.setSameasDocumentBoundaryWest(1);
+            Singleton.getInstance().property.setWestBoundaryremarks("");
+        }
+        else {
+            Singleton.getInstance().property.setSameasDocumentBoundaryWest(0);
+            if(!edRemarkWest.getText().toString().trim().isEmpty()){
+                Singleton.getInstance().property.setWestBoundaryremarks(edRemarkWest.getText().toString().trim());
+            }else{
+                Singleton.getInstance().property.setWestBoundaryremarks("");
+            }
+        }
+
+
+        if(rbNorthYes.isChecked())
+        {
+            Singleton.getInstance().property.setSameasDocumentBoundayNorth(1);
+            Singleton.getInstance().property.setNorthBoundaryremarks("");
+        }
+        else {
+            Singleton.getInstance().property.setSameasDocumentBoundayNorth(0);
+            if(!edRemarkNorth.getText().toString().trim().isEmpty()){
+                Singleton.getInstance().property.setNorthBoundaryremarks(edRemarkNorth.getText().toString().trim());
+            }else{
+                Singleton.getInstance().property.setNorthBoundaryremarks("");
+            }
+        }
+
+
+        if(rbSouthYes.isChecked())
+        {
+            Singleton.getInstance().property.setSameasDocumentBoundarySouth(1);
+            Singleton.getInstance().property.setSouthBoundaryremarks("");
+        }
+        else {
+            Singleton.getInstance().property.setSameasDocumentBoundarySouth(0);
+            if(!edRemarkSouth.getText().toString().trim().isEmpty()){
+                Singleton.getInstance().property.setSouthBoundaryremarks(edRemarkSouth.getText().toString().trim());
+            }else{
+                Singleton.getInstance().property.setSouthBoundaryremarks("");
+            }
+        }
+
     }
 
     private void DispDocumentBoundary() {
@@ -3744,14 +3926,37 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         if(String.valueOf(et_installation_favour_of.getText()).trim().isEmpty()){
             et_installation_favour_of.requestFocus();
             et_installation_favour_of.setError("Please Enter Installation Favour Of");
+        }else{
+            et_person_met_at_site.setError(null);
         }
         if(String.valueOf(et_person_met_at_site.getText()).trim().isEmpty()){
             et_person_met_at_site.requestFocus();
             et_person_met_at_site.setError("Please Enter Person Met At Site");
+        }else{
+            et_person_met_at_site.setError(null);
         }
         if(String.valueOf(et_approach_road_width.getText()).trim().isEmpty()){
             et_approach_road_width.requestFocus();
             et_approach_road_width.setError("Please Enter Approach Road Width");
+        }else{
+            et_approach_road_width.setError(null);
+        }
+
+
+        if(et_electricity_meter_no.getText().toString().trim().isEmpty()){
+            et_electricity_meter_no.requestFocus();
+            et_electricity_meter_no.setError("Please Enter Electricity meter no");
+        }else{
+            et_electricity_meter_no.setError(null);
+        }
+
+        String property_cate_id = SettingsUtils.getInstance().getValue(SettingsUtils.PropertyCategoryId, "");
+
+        if(et_no_of_tenants.getText().toString().trim().isEmpty() && !property_cate_id.equalsIgnoreCase("3")){
+            et_no_of_tenants.requestFocus();
+            et_no_of_tenants.setError("Please Enter No.of.Tenats");
+        }else{
+            et_no_of_tenants.setError(null);
         }
 
 
@@ -4522,6 +4727,71 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             editText_ab_north.setText(Singleton.getInstance().property.getBoundryNorth());
         if (!general.isEmpty(Singleton.getInstance().property.getBoundrySouth()))
             editText_ab_south.setText(Singleton.getInstance().property.getBoundrySouth());
+
+
+        if(Singleton.getInstance().property.getSameasDocumentBoundaryEast() == 1)
+        {
+            rbEastYes.setChecked(true);
+            edRemarkEast.setVisibility(View.GONE);
+            Singleton.getInstance().property.setEastBoundaryremarks("");
+        }
+        else{
+            if(Singleton.getInstance().property.getEastBoundaryremarks()!= null &&
+                    !Singleton.getInstance().property.getEastBoundaryremarks().isEmpty()){
+                edRemarkEast.setText(Singleton.getInstance().property.getEastBoundaryremarks());
+            }
+            rbEastNo.setChecked(true);
+            edRemarkEast.setText(Singleton.getInstance().property.getEastBoundaryremarks());
+            edRemarkEast.setVisibility(View.VISIBLE);
+        }
+
+        if(Singleton.getInstance().property.getSameasDocumentBoundaryWest() == 1)
+        {
+            rbWestYes.setChecked(true);
+            edRemarkWest.setVisibility(View.GONE);
+            Singleton.getInstance().property.setWestBoundaryremarks("");
+        }
+        else{
+            if(Singleton.getInstance().property.getWestBoundaryremarks()!= null &&
+                    !Singleton.getInstance().property.getWestBoundaryremarks().isEmpty()){
+                edRemarkWest.setText(Singleton.getInstance().property.getWestBoundaryremarks());
+            }
+            rbWestNo.setChecked(true);
+            edRemarkWest.setVisibility(View.VISIBLE);
+            edRemarkWest.setText(Singleton.getInstance().property.getWestBoundaryremarks());
+        }
+
+        if(Singleton.getInstance().property.getSameasDocumentBoundayNorth() == 1)
+        {
+            rbNorthYes.setChecked(true);
+            edRemarkNorth.setVisibility(View.GONE);
+            Singleton.getInstance().property.setNorthBoundaryremarks("");
+        } else{
+            if(Singleton.getInstance().property.getNorthBoundaryremarks()!= null &&
+                    !Singleton.getInstance().property.getNorthBoundaryremarks().isEmpty()){
+                edRemarkNorth.setText(Singleton.getInstance().property.getNorthBoundaryremarks());
+            }
+            rbNorthNo.setChecked(true);
+            edRemarkNorth.setVisibility(View.VISIBLE);
+            edRemarkNorth.setText(Singleton.getInstance().property.getNorthBoundaryremarks());
+        }
+
+        if(Singleton.getInstance().property.getSameasDocumentBoundarySouth() == 1)
+        {
+            rbSouthYes.setChecked(true);
+            edRemarkSouth.setVisibility(View.GONE);
+            Singleton.getInstance().property.setSouthBoundaryremarks("");
+        }
+        else{
+            if(Singleton.getInstance().property.getSouthBoundaryremarks()!= null &&
+                    !Singleton.getInstance().property.getSouthBoundaryremarks().isEmpty()){
+                edRemarkSouth.setText(Singleton.getInstance().property.getSouthBoundaryremarks());
+            }
+            rbSouthNo.setChecked(true);
+            edRemarkSouth.setVisibility(View.VISIBLE);
+            edRemarkSouth.setText(Singleton.getInstance().property.getSouthBoundaryremarks());
+        }
+
 
 
         if (!general.isEmpty(Singleton.getInstance().property.getDocEastMeasure())) {

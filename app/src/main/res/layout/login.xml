@@ -120,6 +120,7 @@
             android:gravity="right|end"
             android:layout_marginEnd="@dimen/_5sdp"
             android:layout_marginRight="@dimen/_5sdp"
+            android:visibility="gone"
             />
 
     <TextView

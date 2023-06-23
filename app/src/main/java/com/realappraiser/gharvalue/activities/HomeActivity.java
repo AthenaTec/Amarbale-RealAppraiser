@@ -1921,8 +1921,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             general.customToast("Choose bank!", HomeActivity.this);
         else if (etBankNo.getText().toString() == null || etBankNo.getText().toString().isEmpty() || etBankNo.getText().toString().length() < 1)
             general.customToast("Enter Bank Ref No!", HomeActivity.this);
-        else if (spSubBranch.isEmpty())
-            general.customToast("Choose the sub-branch!", HomeActivity.this);
+        /*else if (spSubBranch.isEmpty())
+            general.customToast("Choose the sub-branch!", HomeActivity.this);*/
         else if (spCaseAdmin.isEmpty())
             general.customToast("Choose case admin!", HomeActivity.this);
         else if (spReportMaker.isEmpty())
@@ -1982,7 +1982,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
            /* if (subBranchId > 0) requestData.setSubBranchId("" + subBranchId);
             else requestData.setSubBranchId("");*/
-           // requestData.setSubBranchId(bankId);
+            requestData.setSubBranchId(""+subBranchId);
 
             requestData.setBankRefNo(bankRef);
             requestData.setRequestBody(RequestParam.CreateCaseNewRequestParams(requestData));

@@ -208,7 +208,7 @@ public class RequestParam {
                 .add("CreatedBy", jsonRequestData.getModifiedBy())
                 .add("CaseAdminId", jsonRequestData.getCaseAdminId())
                 .add("ReportMakerId", jsonRequestData.getReportMakerId())
-                .add("SubBranch",jsonRequestData.getSubBranchId())
+                .add("SubBranchId",jsonRequestData.getSubBranchId())
                 .add("AgencyBranchId",jsonRequestData.getAgencyBranchId())
                 .add("FSAgencyBranchId",jsonRequestData.getAgencyBranchId())
                 .add("AssignedBranchId",jsonRequestData.getAgencyBranchId())

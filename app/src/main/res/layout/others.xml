@@ -1174,12 +1174,17 @@
                                 android:weightSum="2"
                                 tools:ignore="DisableBaselineAlignment">
 
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    >
                                 <com.google.android.material.textfield.TextInputLayout
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                                     android:id="@+id/layout_ab_east"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:textColorHint="@color/font_texthint">
 
                                     <com.google.android.material.textfield.TextInputEditText
@@ -1191,13 +1196,49 @@
                                         android:inputType="textCapWords"
                                         android:maxLength="100" />
                                 </com.google.android.material.textfield.TextInputLayout>
+                                <RadioGroup
+                                    android:id="@+id/id_rg_east"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+                                    <RadioButton
+                                        android:id="@+id/id_rb_east_yes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="@string/yes" />
+                                    <RadioButton
+                                        android:id="@+id/id_rb_east_no"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/height_15"
+                                        android:text="@string/no"
+                                        tools:ignore="RtlHardcoded" />
+                                </RadioGroup>
 
+                                    <EditText
+                                        android:id="@+id/et_remark_east"
+                                        style="@style/StyledTilEditText"
+                                        android:hint="East Remark"
+                                        android:inputType="text"
+                                        android:maxLength="100"
+                                        android:visibility="gone"
+                                        />
+
+                                </LinearLayout>
+
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    >
                                 <com.google.android.material.textfield.TextInputLayout
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                                     android:id="@+id/layout_ab_west"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:textColorHint="@color/font_texthint"
                                     tools:ignore="TooManyViews"
                                     android:layout_marginStart="@dimen/_5sdp"
@@ -1213,6 +1254,38 @@
                                         android:inputType="textCapWords"
                                         android:maxLength="100" />
                                 </com.google.android.material.textfield.TextInputLayout>
+                                    <RadioGroup
+                                        android:id="@+id/id_rg_west"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
+
+                                        <RadioButton
+                                            android:id="@+id/id_rb_west_yes"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:checked="false"
+                                            android:text="@string/yes" />
+
+                                        <RadioButton
+                                            android:id="@+id/id_rb_west_no"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/height_15"
+                                            android:checked="false"
+                                            android:text="@string/no"
+                                            tools:ignore="RtlHardcoded" />
+                                    </RadioGroup>
+                                    <EditText
+                                        android:id="@+id/et_remark_west"
+                                        style="@style/StyledTilEditText"
+                                        android:hint="West Remark"
+                                        android:inputType="text"
+                                        android:maxLength="100"
+                                        android:visibility="gone"
+                                        />
+                                </LinearLayout>
                             </LinearLayout>
 
                             <LinearLayout
@@ -1221,13 +1294,17 @@
                                 android:orientation="horizontal"
                                 android:weightSum="2"
                                 tools:ignore="DisableBaselineAlignment">
-
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    >
                                 <com.google.android.material.textfield.TextInputLayout
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                                     android:id="@+id/layout_ab_north"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:textColorHint="@color/font_texthint">
 
                                     <EditText
@@ -1239,13 +1316,49 @@
                                         android:inputType="textCapWords"
                                         android:maxLength="100" />
                                 </com.google.android.material.textfield.TextInputLayout>
+                                    <RadioGroup
+                                        android:id="@+id/id_rg_north"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal"
+                                        tools:ignore="RtlHardcoded">
 
+                                        <RadioButton
+                                            android:id="@+id/id_rb_north_yes"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:checked="false"
+                                            android:text="@string/yes" />
+
+                                        <RadioButton
+                                            android:id="@+id/id_rb_north_no"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="@dimen/height_15"
+                                            android:checked="false"
+                                            android:text="@string/no"
+                                            tools:ignore="RtlHardcoded" />
+                                    </RadioGroup>
+                                    <EditText
+                                        android:id="@+id/et_remark_north"
+                                        style="@style/StyledTilEditText"
+                                        android:hint="North Remark"
+                                        android:inputType="text"
+                                        android:maxLength="100"
+                                        android:visibility="gone"
+                                        />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="vertical"
+                                    android:layout_weight="1"
+                                    >
                                 <com.google.android.material.textfield.TextInputLayout
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
                                     android:id="@+id/layout_ab_south"
-                                    android:layout_width="0dp"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_weight="1"
                                     android:textColorHint="@color/font_texthint"
                                     android:layout_marginLeft="@dimen/_5sdp"
                                     android:layout_marginStart="@dimen/_5sdp"
@@ -1260,6 +1373,38 @@
                                         android:inputType="textCapWords"
                                         android:maxLength="100" />
                                 </com.google.android.material.textfield.TextInputLayout>
+                                <RadioGroup
+                                    android:id="@+id/id_rg_south"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    tools:ignore="RtlHardcoded">
+
+                                    <RadioButton
+                                        android:id="@+id/id_rb_south_yes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:checked="false"
+                                        android:text="@string/yes" />
+
+                                    <RadioButton
+                                        android:id="@+id/id_rb_south_no"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="@dimen/height_15"
+                                        android:checked="false"
+                                        android:text="@string/no"
+                                        tools:ignore="RtlHardcoded" />
+                                </RadioGroup>
+                                    <EditText
+                                        android:id="@+id/et_remark_south"
+                                        style="@style/StyledTilEditText"
+                                        android:hint="South Remark"
+                                        android:inputType="text"
+                                        android:maxLength="100"
+                                        android:visibility="gone"
+                                        />
+                            </LinearLayout>
 
                             </LinearLayout>
 
@@ -2326,7 +2471,7 @@
                                         android:id="@+id/editText_electricity_meter_no"
                                         android:layout_height="wrap_content"
                                         android:layout_width="match_parent"
-                                        android:hint="Electricity meter no"
+                                        android:hint="*Electricity meter no"
                                         android:inputType="text"
                                         android:maxLength="20"
                                         android:textSize="@dimen/_11sdp"
@@ -2410,7 +2555,7 @@
                                         android:id="@+id/editText_no_of_tenants"
                                         android:layout_height="wrap_content"
                                         android:layout_width="match_parent"
-                                        android:hint="No .of .tenants"
+                                        android:hint="*No .of .tenants"
                                         android:inputType="number"
                                         android:maxLength="10"
                                         android:textSize="@dimen/_11sdp"

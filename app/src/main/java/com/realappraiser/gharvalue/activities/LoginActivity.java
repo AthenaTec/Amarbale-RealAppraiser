@@ -172,6 +172,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         initValues();
 
+        SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://amarbale.real-appraiser.com");
 
         passwordHide.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -309,9 +310,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         txt.setText(year + " " + getResources().getString(R.string.realappraiser_brand));
 
         String baseurl = general.ApiBaseUrl();
-        if (baseurl.equalsIgnoreCase("")) {
+       /* if (baseurl.equalsIgnoreCase("")) {
             Serverurldialog();
-        }
+        }*/
 
         if (general.checkPermissions() && checkGps()) {
             makeLocationUpadte();
@@ -338,7 +339,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
 
             case R.id.seturl:
-                Serverurldialog();
+               // Serverurldialog();
                 break;
         }
     }

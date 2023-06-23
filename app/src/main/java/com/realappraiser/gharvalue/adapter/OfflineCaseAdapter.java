@@ -253,7 +253,7 @@ public class OfflineCaseAdapter extends RecyclerView.Adapter<OfflineCaseAdapter.
             }
         });
 
-        holder.ll_parent_id.setOnClickListener(new View.OnClickListener() {
+       /* holder.ll_parent_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String finnoneId = dataModels.get(position).getBankReferenceNo();
@@ -261,7 +261,7 @@ public class OfflineCaseAdapter extends RecyclerView.Adapter<OfflineCaseAdapter.
                 finIdPopup(mContext,finnoneId,uniqueId);
             }
         });
-
+*/
         /******
          * Accept / Start Button Click Listener
          * ******/

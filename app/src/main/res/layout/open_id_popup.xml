@@ -38,9 +38,12 @@
             android:text="Unique Id : "
             android:textColor="@color/font_1"
             android:textSize="16sp"
-            android:textStyle="normal" />
+            android:textStyle="normal"
+            android:visibility="gone"
+            />
 
         <TextView
+            android:visibility="gone"
             android:id="@+id/txt_unique_id"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -75,7 +78,7 @@
                 android:paddingStart="@dimen/height_40"
                 android:paddingEnd="@dimen/height_40"
                 android:text="@string/cancel"
-                android:textColor="@color/Black"
+                android:textColor="@color/white"
                 android:textSize="@dimen/font_medium" />
         </LinearLayout>
 

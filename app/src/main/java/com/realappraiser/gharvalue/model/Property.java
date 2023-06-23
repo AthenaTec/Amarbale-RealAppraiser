@@ -838,8 +838,49 @@ public class Property {
     @ColumnInfo(name = "AllowableFSI")
     private int AllowableFSI;
 
+    @SerializedName("EastBoundaryremarks")
+    @Expose
+    @ColumnInfo(name = "EastBoundaryremarks")
+    private String EastBoundaryremarks;
+
+    @SerializedName("WestBoundaryremarks")
+    @Expose
+    @ColumnInfo(name = "WestBoundaryremarks")
+    private String WestBoundaryremarks;
+
+    @SerializedName("NorthBoundaryremarks")
+    @Expose
+    @ColumnInfo(name = "NorthBoundaryremarks")
+    private String NorthBoundaryremarks;
+
+    @SerializedName("SouthBoundaryremarks")
+    @Expose
+    @ColumnInfo(name = "SouthBoundaryremarks")
+    private String SouthBoundaryremarks;
 
 
+
+
+
+    @SerializedName("SameasDocumentBoundaryEast")
+    @Expose
+    @ColumnInfo(name = "SameasDocumentBoundaryEast")
+    private int SameasDocumentBoundaryEast;
+
+    @SerializedName("SameasDocumentBoundaryWest")
+    @Expose
+    @ColumnInfo(name = "SameasDocumentBoundaryWest")
+    private int SameasDocumentBoundaryWest;
+
+    @SerializedName("SameasDocumentBoundayNorth")
+    @Expose
+    @ColumnInfo(name = "SameasDocumentBoundayNorth")
+    private int SameasDocumentBoundayNorth;
+
+    @SerializedName("SameasDocumentBoundarySouth")
+    @Expose
+    @ColumnInfo(name = "SameasDocumentBoundarySouth")
+    private int SameasDocumentBoundarySouth;
 
     public String getCoastalRegulatoryZone() {
         return coastalRegulatoryZone;
@@ -2435,5 +2476,69 @@ public class Property {
 
     public void setElectricityMetreNo(String electricityMetreNo) {
         ElectricityMetreNo = electricityMetreNo;
+    }
+
+    public int getSameasDocumentBoundaryEast() {
+        return SameasDocumentBoundaryEast;
+    }
+
+    public void setSameasDocumentBoundaryEast(int sameasDocumentBoundaryEast) {
+        SameasDocumentBoundaryEast = sameasDocumentBoundaryEast;
+    }
+
+    public int getSameasDocumentBoundaryWest() {
+        return SameasDocumentBoundaryWest;
+    }
+
+    public void setSameasDocumentBoundaryWest(int sameasDocumentBoundaryWest) {
+        SameasDocumentBoundaryWest = sameasDocumentBoundaryWest;
+    }
+
+    public int getSameasDocumentBoundayNorth() {
+        return SameasDocumentBoundayNorth;
+    }
+
+    public void setSameasDocumentBoundayNorth(int sameasDocumentBoundayNorth) {
+        SameasDocumentBoundayNorth = sameasDocumentBoundayNorth;
+    }
+
+    public int getSameasDocumentBoundarySouth() {
+        return SameasDocumentBoundarySouth;
+    }
+
+    public void setSameasDocumentBoundarySouth(int sameasDocumentBoundarySouth) {
+        SameasDocumentBoundarySouth = sameasDocumentBoundarySouth;
+    }
+
+    public String getEastBoundaryremarks() {
+        return EastBoundaryremarks;
+    }
+
+    public void setEastBoundaryremarks(String eastBoundaryremarks) {
+        EastBoundaryremarks = eastBoundaryremarks;
+    }
+
+    public String getWestBoundaryremarks() {
+        return WestBoundaryremarks;
+    }
+
+    public String getNorthBoundaryremarks() {
+        return NorthBoundaryremarks;
+    }
+
+    public void setNorthBoundaryremarks(String northBoundaryremarks) {
+        NorthBoundaryremarks = northBoundaryremarks;
+    }
+
+    public String getSouthBoundaryremarks() {
+        return SouthBoundaryremarks;
+    }
+
+    public void setSouthBoundaryremarks(String southBoundaryremarks) {
+        SouthBoundaryremarks = southBoundaryremarks;
+    }
+
+    public void setWestBoundaryremarks(String westBoundaryremarks) {
+        WestBoundaryremarks = westBoundaryremarks;
     }
 }

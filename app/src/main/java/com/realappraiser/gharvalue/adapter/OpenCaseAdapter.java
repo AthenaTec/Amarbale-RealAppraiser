@@ -291,14 +291,14 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             }
         });
 
-        holder.ll_parent_id.setOnClickListener(new View.OnClickListener() {
+        /*holder.ll_parent_id.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String finnoneId = dataModels.get(position).getBankReferenceNo();
                 String uniqueId = dataModels.get(position).getUniqueIdOfTheValuation();
                finIdPopup(mContext,finnoneId,uniqueId);
             }
-        });
+        });*/
 
         holder.relative_name.setOnClickListener(new View.OnClickListener() {
             @Override
