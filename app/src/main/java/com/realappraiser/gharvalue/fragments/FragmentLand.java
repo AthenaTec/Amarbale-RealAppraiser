@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.realappraiser.gharvalue.R;
 import com.realappraiser.gharvalue.model.Measurements;
 import com.realappraiser.gharvalue.utils.DecimalDigitsInputFilter;
@@ -58,11 +59,15 @@ public class FragmentLand extends Fragment {
     public static CheckBox checkbox_add_or_not;
     public static EditText et_percentage_of_estimation;
 
+   public static TextInputEditText etActualFsiLand,etAllowableFsiLand;
     // calc
     @BindView(R.id.open_calc_compound)
     ImageView open_calc_compound;
     @BindView(R.id.open_calc_measurment)
     ImageView open_calc_measurment;
+
+
+
 
 
     Button button0, button1, button2, button3, button4, button5, button6,
@@ -155,6 +160,9 @@ public class FragmentLand extends Fragment {
         editText_compound_permissiblearea_land.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(10,2)});
         editText_land_measurement_land.setFilters(new InputFilter[] {new DecimalDigitsInputFilter(10,2)});
 
+
+        etAllowableFsiLand = view.findViewById(R.id.et_allowable_fsi_land);
+        etActualFsiLand = view.findViewById(R.id.et_actual_fsi_land);
     }
 
     private void LandAreaMeasurements() {
@@ -263,6 +271,17 @@ public class FragmentLand extends Fragment {
 
         // Todo edittext and spinner set values from API
         setLandPropertyDetails();
+
+        setFSIValue();
+    }
+
+    private void setFSIValue(){
+        if(Singleton.getInstance().property.getActualFSIatSite() != 0.0){
+            etActualFsiLand.setText(String.valueOf(Singleton.getInstance().property.getActualFSIatSite()));
+        }
+        if(Singleton.getInstance().property.getAllowableFSI() != 0.0){
+            etAllowableFsiLand.setText(String.valueOf(Singleton.getInstance().property.getAllowableFSI()));
+        }
     }
 
     private void set_mandatory_land() {
@@ -332,6 +351,8 @@ public class FragmentLand extends Fragment {
     }
 
 
+
+
     /*******
      * Post Land Values in form detail for insertion to API
      * ******/
@@ -358,6 +379,20 @@ public class FragmentLand extends Fragment {
             int measureUnitId = Singleton.getInstance().measurements_list.get(pos).getMeasureUnitId();
             if (measureUnitId != 0)
                 Singleton.getInstance().indProperty.setDocumentLandAreaUnit(measureUnitId);
+
+
+            /*Saving Actual and allowable value of fsi*/
+            if(!etActualFsiLand.getText().toString().trim().isEmpty()){
+                Singleton.getInstance().property.setActualFSIatSite(Float.valueOf(etActualFsiLand.getText().toString()));
+            }else{
+                Singleton.getInstance().property.setActualFSIatSite(0.0f);
+            }
+            if(!etAllowableFsiLand.getText().toString().trim().isEmpty()){
+                Singleton.getInstance().property.setAllowableFSI(Float.valueOf(etAllowableFsiLand.getText().toString()));
+            }else{
+                Singleton.getInstance().property.setAllowableFSI(0.0f);
+            }
+
         }
     }
 

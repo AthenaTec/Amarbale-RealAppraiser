@@ -831,12 +831,12 @@ public class Property {
     @SerializedName("ActualFSIatSite")
     @Expose
     @ColumnInfo(name = "ActualFSIatSite")
-    private int ActualFSIatSite;
+    private float ActualFSIatSite;
 
     @SerializedName("AllowableFSI")
     @Expose
     @ColumnInfo(name = "AllowableFSI")
-    private int AllowableFSI;
+    private float AllowableFSI;
 
     @SerializedName("EastBoundaryremarks")
     @Expose
@@ -2454,19 +2454,19 @@ public class Property {
         ApproachRoadWidth = approachRoadWidth;
     }
 
-    public int getActualFSIatSite() {
+    public float getActualFSIatSite() {
         return ActualFSIatSite;
     }
 
-    public void setActualFSIatSite(int actualFSIatSite) {
+    public void setActualFSIatSite(float actualFSIatSite) {
         ActualFSIatSite = actualFSIatSite;
     }
 
-    public int getAllowableFSI() {
+    public float getAllowableFSI() {
         return AllowableFSI;
     }
 
-    public void setAllowableFSI(int allowableFSI) {
+    public void setAllowableFSI(float allowableFSI) {
         AllowableFSI = allowableFSI;
     }
 

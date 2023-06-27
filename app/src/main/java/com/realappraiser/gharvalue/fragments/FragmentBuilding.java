@@ -1436,10 +1436,10 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
             if (!general.isEmpty(Singleton.getInstance().indProperty.getFloorDetails()))
                 editText_Floor_details.setText(Singleton.getInstance().indProperty.getFloorDetails());
 
-            if(Singleton.getInstance().property.getActualFSIatSite() != 0){
+            if(Singleton.getInstance().property.getActualFSIatSite() != 0.0){
                 etActualFsi.setText(String.valueOf(Singleton.getInstance().property.getActualFSIatSite()));
             }
-            if(Singleton.getInstance().property.getAllowableFSI() != 0){
+            if(Singleton.getInstance().property.getAllowableFSI() != 0.0){
                 etAllowableFsi.setText(String.valueOf(Singleton.getInstance().property.getAllowableFSI()));
             }
 
@@ -1516,14 +1516,14 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
 
                 /*Saving Actual and allowable value of fsi*/
                 if(!etActualFsi.getText().toString().trim().isEmpty()){
-                    Singleton.getInstance().property.setActualFSIatSite(Integer.valueOf(etActualFsi.getText().toString()));
+                    Singleton.getInstance().property.setActualFSIatSite(Float.valueOf(etActualFsi.getText().toString()));
                 }else{
-                    Singleton.getInstance().property.setActualFSIatSite(0);
+                    Singleton.getInstance().property.setActualFSIatSite(0.0f);
                 }
                 if(!etAllowableFsi.getText().toString().trim().isEmpty()){
-                    Singleton.getInstance().property.setAllowableFSI(Integer.valueOf(etAllowableFsi.getText().toString()));
+                    Singleton.getInstance().property.setAllowableFSI(Float.valueOf(etAllowableFsi.getText().toString()));
                 }else{
-                    Singleton.getInstance().property.setAllowableFSI(0);
+                    Singleton.getInstance().property.setAllowableFSI(0.0f);
                 }
 
 
