@@ -1289,7 +1289,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/height_3"
                                 android:gravity="left"
-                                android:text="Select*"
+                                android:text="Select"
                                 android:textColor="@color/font_text_minor_heading"
                                 android:textSize="@dimen/_7sdp"
                                 tools:ignore="RtlHardcoded" />

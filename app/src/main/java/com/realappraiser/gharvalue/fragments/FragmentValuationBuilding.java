@@ -916,7 +916,7 @@ public class FragmentValuationBuilding extends Fragment implements RatePopupupIn
             }
 
 
-            boolean isCarpetError = false;
+            /*boolean isCarpetError = false;
              if(spinner_carpet!=null && spinner_carpet.getText().toString().trim().equalsIgnoreCase(getResources().getString(R.string.select))){
                 isCarpetError = true;
                 carpet_error.setVisibility(View.VISIBLE);
@@ -924,7 +924,7 @@ public class FragmentValuationBuilding extends Fragment implements RatePopupupIn
 
              if(!isCarpetError && spinner_carpet_type!=null && spinner_carpet_type.getText().toString().trim().equalsIgnoreCase(getResources().getString(R.string.select))){
                  select_error.setVisibility(View.VISIBLE);
-             }
+             }*/
 
             valid_carpetValue();
         }

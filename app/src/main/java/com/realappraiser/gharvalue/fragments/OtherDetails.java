@@ -3242,11 +3242,11 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     private void getActualBoundaryData(){
         if(rbEastYes.isChecked())
         {
-            Singleton.getInstance().property.setSameasDocumentBoundaryEast(1);
+            Singleton.getInstance().property.setSameasDocumentBoundaryEast(true);
             Singleton.getInstance().property.setEastBoundaryremarks("");
         }
         else {
-            Singleton.getInstance().property.setSameasDocumentBoundaryEast(0);
+            Singleton.getInstance().property.setSameasDocumentBoundaryEast(false);
             if(!edRemarkEast.getText().toString().trim().isEmpty()){
                 Singleton.getInstance().property.setEastBoundaryremarks(edRemarkEast.getText().toString().trim());
             }else{
@@ -3259,11 +3259,11 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
         if(rbWestYes.isChecked())
         {
-            Singleton.getInstance().property.setSameasDocumentBoundaryWest(1);
+            Singleton.getInstance().property.setSameasDocumentBoundaryWest(true);
             Singleton.getInstance().property.setWestBoundaryremarks("");
         }
         else {
-            Singleton.getInstance().property.setSameasDocumentBoundaryWest(0);
+            Singleton.getInstance().property.setSameasDocumentBoundaryWest(false);
             if(!edRemarkWest.getText().toString().trim().isEmpty()){
                 Singleton.getInstance().property.setWestBoundaryremarks(edRemarkWest.getText().toString().trim());
             }else{
@@ -3274,11 +3274,11 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
         if(rbNorthYes.isChecked())
         {
-            Singleton.getInstance().property.setSameasDocumentBoundayNorth(1);
+            Singleton.getInstance().property.setSameasDocumentBoundayNorth(true);
             Singleton.getInstance().property.setNorthBoundaryremarks("");
         }
         else {
-            Singleton.getInstance().property.setSameasDocumentBoundayNorth(0);
+            Singleton.getInstance().property.setSameasDocumentBoundayNorth(false);
             if(!edRemarkNorth.getText().toString().trim().isEmpty()){
                 Singleton.getInstance().property.setNorthBoundaryremarks(edRemarkNorth.getText().toString().trim());
             }else{
@@ -3289,11 +3289,11 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
         if(rbSouthYes.isChecked())
         {
-            Singleton.getInstance().property.setSameasDocumentBoundarySouth(1);
+            Singleton.getInstance().property.setSameasDocumentBoundarySouth(true);
             Singleton.getInstance().property.setSouthBoundaryremarks("");
         }
         else {
-            Singleton.getInstance().property.setSameasDocumentBoundarySouth(0);
+            Singleton.getInstance().property.setSameasDocumentBoundarySouth(false);
             if(!edRemarkSouth.getText().toString().trim().isEmpty()){
                 Singleton.getInstance().property.setSouthBoundaryremarks(edRemarkSouth.getText().toString().trim());
             }else{
@@ -3852,14 +3852,14 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
     private boolean valiadation_address_site() {
         isvalid = true;
         // Address per docs
-        String address_per_doc = editText_addr_perdoc.getText().toString();
+       /* String address_per_doc = editText_addr_perdoc.getText().toString();
         if (!general.isEmpty(address_per_doc)) {
             editText_addr_perdoc.setError(null);
         } else {
             editText_addr_perdoc.requestFocus();
             editText_addr_perdoc.setError(getResources().getString(R.string.err_addperdoc));
             isvalid = false;
-        }
+        }*/
         // Address site
         String addr_site = editText_addr_site.getText().toString();
         if (!general.isEmpty(addr_site)) {
@@ -3882,18 +3882,18 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             etPersonName.requestFocus();
         }
 
-        if (general.isEmpty(etPersonNo.getText().toString())) {
+      /*  if (general.isEmpty(etPersonNo.getText().toString())) {
             etPersonNo.setError("Phone number required!");
             etPersonNo.requestFocus();
-        }
+        }*/
 
-        String address_per_doc = editText_addr_perdoc.getText().toString();
+        /*String address_per_doc = editText_addr_perdoc.getText().toString();
         if (!general.isEmpty(address_per_doc)) {
             editText_addr_perdoc.setError(null);
         } else {
             editText_addr_perdoc.requestFocus();
             editText_addr_perdoc.setError(getResources().getString(R.string.err_addperdoc));
-        }
+        }*/
         // Address site
         String addr_site = editText_addr_site.getText().toString();
         if (!general.isEmpty(addr_site)) {
@@ -3915,6 +3915,15 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             }, 2000);
         }
 
+
+        if (general.isEmpty(editText_landmark.getText().toString())) {
+            editText_landmark.setError("Landmark required!");
+            editText_landmark.requestFocus();
+        }else{
+            editText_landmark.setError(null);
+        }
+
+
         if(String.valueOf(et_residential_usage.getText()).trim().isEmpty()){
             et_residential_usage.requestFocus();
             et_residential_usage.setError("Please Enter Resident Usage");
@@ -3923,12 +3932,12 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             et_commercial_usage.requestFocus();
             et_commercial_usage.setError("Please Enter Commercial Usage");
         }
-        if(String.valueOf(et_installation_favour_of.getText()).trim().isEmpty()){
+        /*if(String.valueOf(et_installation_favour_of.getText()).trim().isEmpty()){
             et_installation_favour_of.requestFocus();
             et_installation_favour_of.setError("Please Enter Installation Favour Of");
         }else{
             et_person_met_at_site.setError(null);
-        }
+        }*/
         if(String.valueOf(et_person_met_at_site.getText()).trim().isEmpty()){
             et_person_met_at_site.requestFocus();
             et_person_met_at_site.setError("Please Enter Person Met At Site");
@@ -3943,21 +3952,28 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         }
 
 
-        if(et_electricity_meter_no.getText().toString().trim().isEmpty()){
+        /*if(et_electricity_meter_no.getText().toString().trim().isEmpty()){
             et_electricity_meter_no.requestFocus();
             et_electricity_meter_no.setError("Please Enter Electricity meter no");
         }else{
             et_electricity_meter_no.setError(null);
+        }*/
+
+         if(et_habitation.getText().toString().trim().isEmpty()){
+             et_habitation.requestFocus();
+             et_habitation.setError("Please Enter Habitation % in locality");
+        }else{
+             et_habitation.setError(null);
         }
 
-        String property_cate_id = SettingsUtils.getInstance().getValue(SettingsUtils.PropertyCategoryId, "");
+       /* String property_cate_id = SettingsUtils.getInstance().getValue(SettingsUtils.PropertyCategoryId, "");
 
         if(et_no_of_tenants.getText().toString().trim().isEmpty() && !property_cate_id.equalsIgnoreCase("3")){
             et_no_of_tenants.requestFocus();
             et_no_of_tenants.setError("Please Enter No.of.Tenats");
         }else{
             et_no_of_tenants.setError(null);
-        }
+        }*/
 
 
     }
@@ -4729,7 +4745,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             editText_ab_south.setText(Singleton.getInstance().property.getBoundrySouth());
 
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundaryEast() == 1)
+        if(Singleton.getInstance().property.getSameasDocumentBoundaryEast())
         {
             rbEastYes.setChecked(true);
             edRemarkEast.setVisibility(View.GONE);
@@ -4745,7 +4761,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             edRemarkEast.setVisibility(View.VISIBLE);
         }
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundaryWest() == 1)
+        if(Singleton.getInstance().property.getSameasDocumentBoundaryWest())
         {
             rbWestYes.setChecked(true);
             edRemarkWest.setVisibility(View.GONE);
@@ -4761,7 +4777,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             edRemarkWest.setText(Singleton.getInstance().property.getWestBoundaryremarks());
         }
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundayNorth() == 1)
+        if(Singleton.getInstance().property.getSameasDocumentBoundayNorth())
         {
             rbNorthYes.setChecked(true);
             edRemarkNorth.setVisibility(View.GONE);
@@ -4776,7 +4792,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             edRemarkNorth.setText(Singleton.getInstance().property.getNorthBoundaryremarks());
         }
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundarySouth() == 1)
+        if(Singleton.getInstance().property.getSameasDocumentBoundarySouth())
         {
             rbSouthYes.setChecked(true);
             edRemarkSouth.setVisibility(View.GONE);
@@ -4938,6 +4954,8 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         if (Singleton.getInstance().property.getLandmark() != null)
             editText_landmark.setText(Singleton.getInstance().property.getLandmark());
 
+
+        Log.e("Residential_usage",String.valueOf(Singleton.getInstance().property.getResidentialUsageInPropertyPercentage()));
 
         /* Newly added fields*/
         if(et_residential_usage!=null && Singleton.getInstance().property.getResidentialUsageInPropertyPercentage() !=0)

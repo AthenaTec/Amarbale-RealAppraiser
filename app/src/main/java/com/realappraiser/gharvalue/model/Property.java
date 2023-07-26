@@ -865,22 +865,22 @@ public class Property {
     @SerializedName("SameasDocumentBoundaryEast")
     @Expose
     @ColumnInfo(name = "SameasDocumentBoundaryEast")
-    private int SameasDocumentBoundaryEast;
+    private Boolean SameasDocumentBoundaryEast;
 
     @SerializedName("SameasDocumentBoundaryWest")
     @Expose
     @ColumnInfo(name = "SameasDocumentBoundaryWest")
-    private int SameasDocumentBoundaryWest;
+    private Boolean SameasDocumentBoundaryWest;
 
     @SerializedName("SameasDocumentBoundayNorth")
     @Expose
     @ColumnInfo(name = "SameasDocumentBoundayNorth")
-    private int SameasDocumentBoundayNorth;
+    private Boolean SameasDocumentBoundayNorth;
 
     @SerializedName("SameasDocumentBoundarySouth")
     @Expose
     @ColumnInfo(name = "SameasDocumentBoundarySouth")
-    private int SameasDocumentBoundarySouth;
+    private Boolean SameasDocumentBoundarySouth;
 
     public String getCoastalRegulatoryZone() {
         return coastalRegulatoryZone;
@@ -2478,35 +2478,35 @@ public class Property {
         ElectricityMetreNo = electricityMetreNo;
     }
 
-    public int getSameasDocumentBoundaryEast() {
+    public Boolean getSameasDocumentBoundaryEast() {
         return SameasDocumentBoundaryEast;
     }
 
-    public void setSameasDocumentBoundaryEast(int sameasDocumentBoundaryEast) {
+    public void setSameasDocumentBoundaryEast(Boolean sameasDocumentBoundaryEast) {
         SameasDocumentBoundaryEast = sameasDocumentBoundaryEast;
     }
 
-    public int getSameasDocumentBoundaryWest() {
+    public Boolean getSameasDocumentBoundaryWest() {
         return SameasDocumentBoundaryWest;
     }
 
-    public void setSameasDocumentBoundaryWest(int sameasDocumentBoundaryWest) {
+    public void setSameasDocumentBoundaryWest(Boolean sameasDocumentBoundaryWest) {
         SameasDocumentBoundaryWest = sameasDocumentBoundaryWest;
     }
 
-    public int getSameasDocumentBoundayNorth() {
+    public Boolean getSameasDocumentBoundayNorth() {
         return SameasDocumentBoundayNorth;
     }
 
-    public void setSameasDocumentBoundayNorth(int sameasDocumentBoundayNorth) {
+    public void setSameasDocumentBoundayNorth(Boolean sameasDocumentBoundayNorth) {
         SameasDocumentBoundayNorth = sameasDocumentBoundayNorth;
     }
 
-    public int getSameasDocumentBoundarySouth() {
+    public Boolean getSameasDocumentBoundarySouth() {
         return SameasDocumentBoundarySouth;
     }
 
-    public void setSameasDocumentBoundarySouth(int sameasDocumentBoundarySouth) {
+    public void setSameasDocumentBoundarySouth(Boolean sameasDocumentBoundarySouth) {
         SameasDocumentBoundarySouth = sameasDocumentBoundarySouth;
     }
 

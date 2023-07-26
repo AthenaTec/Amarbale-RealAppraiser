@@ -2049,8 +2049,8 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
         boolean is_valid = true;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
-            is_valid = true;
+       /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
+            is_valid = true;*/
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
             is_valid = true;
 
@@ -2061,11 +2061,11 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }
         // PropertyAddress
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
             Log.e(TAG, "building_validation: getPropertyAddress");
             // empty
             is_valid = false;
-        }
+        }*/
         // PropertyAddressAtSite
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
             Log.e(TAG, "building_validation: getPropertyAddressAtSite");
@@ -2078,6 +2078,18 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             // empty
             is_valid = false;
         }
+
+        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+            Log.e(TAG, "building_validation: landmark");
+            // empty
+            is_valid = false;
+        }
+
+        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+            is_valid = false;
+        }
+
+
         //MeasureLandAreaUnit
         if (Singleton.getInstance().indProperty.getMeasuredLandAreaUnit() == 0) {
             Log.e(TAG, "building_validation: getMeasuredLandAreaUnit");
@@ -2087,8 +2099,8 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
         if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
             is_valid = false;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
-            is_valid = false;
+      /*  if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
+            is_valid = false;*/
 
         for (IndPropertyFloor floor : Singleton.getInstance().indPropertyFloors) {
             if (general.isEmpty(floor.getMeasuredFloorArea())) {
@@ -2204,14 +2216,14 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
 
         //adding mandatory field for cartpet type and carpet areaType
-        if(Singleton.getInstance().indPropertyValuation.getCarpetAreaPercentage() == null || Singleton.getInstance().indPropertyValuation.getCarpetAreaPercentage().isEmpty()){
+       /* if(Singleton.getInstance().indPropertyValuation.getCarpetAreaPercentage() == null || Singleton.getInstance().indPropertyValuation.getCarpetAreaPercentage().isEmpty()){
             is_valid  = false;
         }
 
         if(Singleton.getInstance().indPropertyValuation.getCarpetAreaTypeId() == null ||
                 Singleton.getInstance().indPropertyValuation.getCarpetAreaTypeId().isEmpty()){
               is_valid =  false;
-        }
+        }*/
 
 
 
@@ -2365,16 +2377,16 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
         boolean is_valid = true;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
-            is_valid = true;
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
+            is_valid = true;*/
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
             is_valid = true;
 
         if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
             is_valid = false;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
-            is_valid = false;
+      /*  if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
+            is_valid = false;*/
 
         // Lat Long
         if (general.isEmpty(Singleton.getInstance().property.getLatLongDetails())) {
@@ -2382,20 +2394,24 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }
         // PropertyAddress
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
             // empty
             is_valid = false;
-        }
+        }*/
         // PropertyAddressAtSite
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
-            // empty
-            is_valid = false;
-        }
         // DocumentLandArea (Compound)
        /* if (general.isEmpty(Singleton.getInstance().indProperty.getDocumentLandArea())) {
             // empty
             is_valid = false;
         }*/
+
+        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+            is_valid = false;
+        }
+
+        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+            is_valid = false;
+        }
 
         String flatsituated = Singleton.getInstance().indProperty.getFlatSituatedInFloor();
         if (Singleton.getInstance().indPropertyFloors.size() > 0) {
@@ -2449,22 +2465,31 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
         boolean is_valid = true;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
-            is_valid = true;
+       /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
+            is_valid = true;*/
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
             is_valid = true;
 
         if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
             is_valid = false;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
-            is_valid = false;
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
+            is_valid = false;*/
 
         // Lat Long
         if (general.isEmpty(Singleton.getInstance().property.getLatLongDetails())) {
             // empty
             is_valid = false;
         }
+
+        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+            is_valid = false;
+        }
+
+        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+            is_valid = false;
+        }
+
         //Check whether market price has values or not
         if(general.isEmpty(Singleton.getInstance().indPropertyValuation.getTotalPropertyValue())
          || Singleton.getInstance().getInstance().indPropertyValuation.getTotalPropertyValue().trim().equals("0")
@@ -2481,13 +2506,20 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
 
         // PropertyAddress
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
+      /*  if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
             // empty
             is_valid = false;
-        }
+        }*/
         // PropertyAddressAtSite
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
             // empty
+            is_valid = false;
+        }
+        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+            is_valid = false;
+        }
+
+        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
             is_valid = false;
         }
 
@@ -2551,16 +2583,16 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
     private boolean land_validation() {
         boolean is_valid = true;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
-            is_valid = true;
+       /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
+            is_valid = true;*/
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
             is_valid = true;
 
         if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
             is_valid = false;
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
-            is_valid = false;
+       /* if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
+            is_valid = false;*/
 
         // Lat Long
         if (general.isEmpty(Singleton.getInstance().property.getLatLongDetails())) {
@@ -2568,15 +2600,24 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }
         // PropertyAddress
-        if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
+       /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
             // empty
             is_valid = false;
-        }
+        }*/
         // PropertyAddressAtSite
         if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
             // empty
             is_valid = false;
         }
+
+        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+            is_valid = false;
+        }
+
+        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+            is_valid = false;
+        }
+
         // DocumentLandArea (Compound)
         if (general.isEmpty(Singleton.getInstance().indProperty.getDocumentLandArea())) {
             // empty

@@ -90,9 +90,9 @@
     <string name="save">SAVE</string>
     <string name="next">NEXT</string>
     <string name="address">ADDRESS</string>
-    <string name="addr_perdoc">Address per document*</string>
+    <string name="addr_perdoc">Address per document</string>
     <string name="addr_site">Address at Site/Actual*</string>
-    <string name="landmark">Landmark</string>
+    <string name="landmark">*Landmark</string>
     <string name="offlinecaselimited">Select the offline cases are equal to </string>
     <string name="alreadyexceeded">Maximum offline cases reached! </string>
     <string name="select_one_case">Select atleast one case</string>
@@ -320,7 +320,7 @@
     <string name="distress_per">Distress %</string>
     <string name="distress_per_completion">Distress % on completion</string>
     <string name="distress_per_inspection">Distress % as on date of inspection</string>
-    <string name="carpet_per">Carpet %*</string>
+    <string name="carpet_per">Carpet %</string>
     <string name="carpet_per_type">Carpet Type</string>
     <string name="floor">#Floor</string>
     <string name="value">Value</string>
@@ -533,7 +533,7 @@
 
     <string name="resident_usage">*% Residential Usage in Property</string>
     <string name="commercial_usage">*% Commercial Usage in Property</string>
-    <string name="installation_favour_of">*Installation in favor of</string>
+    <string name="installation_favour_of">Installation in favor of</string>
 
     <array name="compare">
         <item>Select</item>
