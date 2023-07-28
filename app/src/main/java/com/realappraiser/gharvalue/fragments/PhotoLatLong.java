@@ -289,6 +289,7 @@ public class PhotoLatLong extends Fragment implements
                 gpsService.getLocation();
                 GetImageAPI();
                 setUpGClient();
+                general.hideloading();
             } else {
                 Connectivity.showNoConnectionDialog(getActivity());
                 Log.e(TAG, "Hide 293");

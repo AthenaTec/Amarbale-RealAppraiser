@@ -4745,7 +4745,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             editText_ab_south.setText(Singleton.getInstance().property.getBoundrySouth());
 
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundaryEast())
+        if(Singleton.getInstance().property.getSameasDocumentBoundaryEast() != null && Singleton.getInstance().property.getSameasDocumentBoundaryEast())
         {
             rbEastYes.setChecked(true);
             edRemarkEast.setVisibility(View.GONE);
@@ -4761,7 +4761,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             edRemarkEast.setVisibility(View.VISIBLE);
         }
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundaryWest())
+        if(Singleton.getInstance().property.getSameasDocumentBoundaryWest() !=null && Singleton.getInstance().property.getSameasDocumentBoundaryWest())
         {
             rbWestYes.setChecked(true);
             edRemarkWest.setVisibility(View.GONE);
@@ -4777,7 +4777,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             edRemarkWest.setText(Singleton.getInstance().property.getWestBoundaryremarks());
         }
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundayNorth())
+        if(Singleton.getInstance().property.getSameasDocumentBoundayNorth() !=null &&  Singleton.getInstance().property.getSameasDocumentBoundayNorth())
         {
             rbNorthYes.setChecked(true);
             edRemarkNorth.setVisibility(View.GONE);
@@ -4792,7 +4792,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             edRemarkNorth.setText(Singleton.getInstance().property.getNorthBoundaryremarks());
         }
 
-        if(Singleton.getInstance().property.getSameasDocumentBoundarySouth())
+        if(Singleton.getInstance().property.getSameasDocumentBoundarySouth() != null && Singleton.getInstance().property.getSameasDocumentBoundarySouth())
         {
             rbSouthYes.setChecked(true);
             edRemarkSouth.setVisibility(View.GONE);
