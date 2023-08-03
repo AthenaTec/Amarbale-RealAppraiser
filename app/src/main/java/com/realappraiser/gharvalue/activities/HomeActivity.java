@@ -1294,7 +1294,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 getTypeLists();
             }
         } else {
-            general.customToast(getString(R.string.something_wrong), HomeActivity.this);
+            //general.customToast(getString(R.string.something_wrong), HomeActivity.this);
         }
     }
 
