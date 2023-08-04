@@ -172,7 +172,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         initValues();
 
-        SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://amarbale.real-appraiser.com");
+       // SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://amarbale.real-appraiser.com");
+        SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://192.168.2.57:1013");
 
         passwordHide.setOnClickListener(new View.OnClickListener() {
             @Override
