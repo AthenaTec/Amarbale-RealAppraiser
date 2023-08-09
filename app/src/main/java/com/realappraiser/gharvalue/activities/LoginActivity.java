@@ -172,8 +172,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         initValues();
 
-       // SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://amarbale.real-appraiser.com");
-        SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://192.168.2.57:1013");
+        //SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, "https://amarbale.real-appraiser.com");
+        SettingsUtils.getInstance().putValue(SettingsUtils.API_BASE_URL, SettingsUtils.BASE_URL);
 
         passwordHide.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -967,6 +967,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         JsonRequestData requestData = new JsonRequestData();
         requestData.setUrl(url);
         requestData.setAuthToken(SettingsUtils.getInstance().getValue(SettingsUtils.KEY_TOKEN, ""));
+
+        Log.e("Access Token....",  SettingsUtils.getInstance().getValue(SettingsUtils.KEY_TOKEN, ""));
+
         WebserviceCommunicator webserviceTask = new WebserviceCommunicator(LoginActivity.this,
                 requestData, SettingsUtils.GET_TOKEN);
         webserviceTask.setFetchMyData(new TaskCompleteListener<JsonRequestData>() {

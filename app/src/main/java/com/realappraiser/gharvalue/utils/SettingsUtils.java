@@ -41,7 +41,7 @@ public class SettingsUtils {
     private static final String TAG = SettingsUtils.class.getSimpleName();
     public static String mPhotoPath = null;
 
-    //public static final String BASE_URL = "http://113.193.30.132:8003";
+    public static final String BASE_URL = "https://rabase.real-appraiser.com";
     public static final String API_BASE_URL = "API_BASE_URL";
     public static String image_destination_path = Environment.getExternalStorageDirectory() + File.separator + "copy" + ".jpg";
     public static final String SecurityToken = "/api/security/token";
