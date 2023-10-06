@@ -74,6 +74,7 @@ import java.util.ArrayList;
 import uk.co.senab.photoview.PhotoViewAttacher;
 
 /**
+ *
  * Created by kaptas on 16/12/17.
  */
 
@@ -1923,7 +1924,10 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                 // building
                 if (building_validation()) {
                     // After all validation check the Image api for altest one Image
-                    HitImageAPI();
+                 //   HitImageAPI();
+                    general.hideloading();
+                    PropertyExistsRejectPopup(case_id, mContext.getResources().getString(R.string.send_to_admin), mContext.getResources().getString(R.string.admin_text));
+
                 } else {
                     // show All mandatory field popup
                     general.hideloading();
@@ -1934,7 +1938,10 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                 // flat
                 if (flat_validation()) {
                     // After all validation check the Image api for altest one Image
-                    HitImageAPI();
+                   // HitImageAPI();
+                    general.hideloading();
+                    PropertyExistsRejectPopup(case_id, mContext.getResources().getString(R.string.send_to_admin), mContext.getResources().getString(R.string.admin_text));
+
                 } else {
                     // show All mandatory field popup
                     general.hideloading();
@@ -1944,7 +1951,10 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                 // penthouse
                 if (penthouse_validation()) {
                     // After all validation check the Image api for altest one Image
-                    HitImageAPI();
+                   // HitImageAPI();
+                    general.hideloading();
+                    PropertyExistsRejectPopup(case_id, mContext.getResources().getString(R.string.send_to_admin), mContext.getResources().getString(R.string.admin_text));
+
                 } else {
                     // show All mandatory field popup
                     general.hideloading();
@@ -1954,7 +1964,10 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                 // land
                 if (land_validation()) {
                     // After all validation check the Image api for altest one Image
-                    HitImageAPI();
+                   // HitImageAPI();
+                    general.hideloading();
+                    PropertyExistsRejectPopup(case_id, mContext.getResources().getString(R.string.send_to_admin), mContext.getResources().getString(R.string.admin_text));
+
                 } else {
                     // show All mandatory field popup
                     general.hideloading();
@@ -2051,8 +2064,8 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
        /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
             is_valid = true;*/
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
-            is_valid = true;
+       /* if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
+            is_valid = true;*/
 
         // Lat Long
         if (general.isEmpty(Singleton.getInstance().property.getLatLongDetails())) {
@@ -2067,71 +2080,71 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }*/
         // PropertyAddressAtSite
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
+        /*if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
             Log.e(TAG, "building_validation: getPropertyAddressAtSite");
             // empty
             is_valid = false;
-        }
+        }*/
         // DocumentLandArea (Compound)
-        if (general.isEmpty(Singleton.getInstance().indProperty.getDocumentLandArea())) {
+        /*if (general.isEmpty(Singleton.getInstance().indProperty.getDocumentLandArea())) {
             Log.e(TAG, "building_validation: getDocumentLandArea");
             // empty
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+        /*if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
             Log.e(TAG, "building_validation: landmark");
             // empty
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+        /*if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
             is_valid = false;
-        }
+        }*/
 
 
         //MeasureLandAreaUnit
-        if (Singleton.getInstance().indProperty.getMeasuredLandAreaUnit() == 0) {
+        /*if (Singleton.getInstance().indProperty.getMeasuredLandAreaUnit() == 0) {
             Log.e(TAG, "building_validation: getMeasuredLandAreaUnit");
             is_valid = false;
-        }
+        }*/
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
-            is_valid = false;
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
+            is_valid = false;*/
 
       /*  if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
             is_valid = false;*/
 
-        for (IndPropertyFloor floor : Singleton.getInstance().indPropertyFloors) {
+        /*for (IndPropertyFloor floor : Singleton.getInstance().indPropertyFloors) {
             if (general.isEmpty(floor.getMeasuredFloorArea())) {
                 is_valid = false;
                 break;
             }
-        }
+        }*/
 
         for (IndPropertyFloorsValuation valuation :
                 Singleton.getInstance().indPropertyFloorsValuations) {
             if (general.isEmpty(valuation.getDocumentConstrRate())) {
-                is_valid = false;
+                is_valid = true;
                 break;
             }
         }
 
         // MeasuredLandArea (Permissible area)
-        if (general.isEmpty(Singleton.getInstance().indProperty.getMeasuredLandArea())) {
+        /*if (general.isEmpty(Singleton.getInstance().indProperty.getMeasuredLandArea())) {
             Log.e(TAG, "building_validation: getMeasuredLandArea");
             // empty
             is_valid = false;
-        }
+        }*/
 
 
-        if (Singleton.getInstance().indProperty.getNoOfFloors() == 0) {
+       /* if (Singleton.getInstance().indProperty.getNoOfFloors() == 0) {
             is_valid = false;
-        }
+        }*/
 
-        if (Singleton.getInstance().indProperty.getNoOfFloors() != Singleton.getInstance().indPropertyFloors.size()) {
+       /* if (Singleton.getInstance().indProperty.getNoOfFloors() != Singleton.getInstance().indPropertyFloors.size()) {
             is_valid = false;
-        }
+        }*/
 
         // DocumentLandAreaUnit (As per measurement)
         if (!general.isEmpty(String.valueOf(Singleton.getInstance().indProperty.getDocumentLandAreaUnit()))) {
@@ -2151,13 +2164,13 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             }
         }
 
-        if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getDocumentLandRate())) {
+        /*if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getDocumentLandRate())) {
             Log.e(TAG, "building_validation: getDocumentLandRate");
             is_valid = false;
-        }
+        }*/
 
 
-        if (Singleton.getInstance().indPropertyFloors.size() > 0) {
+        /*if (Singleton.getInstance().indPropertyFloors.size() > 0) {
             for (IndPropertyFloor inProp :
                     Singleton.getInstance().indPropertyFloors) {
                 if (general.isEmpty(inProp.getDocumentFloorArea())) {
@@ -2166,11 +2179,11 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                     break;
                 }
             }
-        }
+        }*/
 
 
         // Floors
-        ArrayList<IndPropertyFloor> floor_list = new ArrayList<>();
+       /* ArrayList<IndPropertyFloor> floor_list = new ArrayList<>();
         floor_list = Singleton.getInstance().indPropertyFloors;
         if (floor_list.size() == 0) {
             is_valid = false;
@@ -2178,7 +2191,7 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             for (int j = 0; j < floor_list.size(); j++) {
                 String floorName = floor_list.get(j).getFloorName();
                 if (general.isEmpty(floorName)) {
-                    is_valid = false;
+                    is_valid = true;
                 }
                 int constructionStageId = floor_list.get(j).getConstructionStageId();
                 if (constructionStageId == 0) {
@@ -2202,17 +2215,17 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             }
 
 
-        }
+        }*/
 
 
         // Check the Measurment Image on kakode
-        boolean real_appraiser_jaipur = SettingsUtils.getInstance().getValue(SettingsUtils.real_appraiser_jaipur, false);
+        /*boolean real_appraiser_jaipur = SettingsUtils.getInstance().getValue(SettingsUtils.real_appraiser_jaipur, false);
         if (!real_appraiser_jaipur) {
             // Kakode
             if (Singleton.getInstance().GetImage_list_flat.size() == 0) {
                 is_valid = false;
             }
-        }
+        }*/
 
 
         //adding mandatory field for cartpet type and carpet areaType
@@ -2227,7 +2240,7 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
 
 
-        return is_valid;
+        return true;
     }
 
     private void HitImageAPI() {
@@ -2379,11 +2392,11 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
         /*if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
             is_valid = true;*/
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
-            is_valid = true;
+       /* if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
+            is_valid = true;*/
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
-            is_valid = false;
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
+            is_valid = false;*/
 
       /*  if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
             is_valid = false;*/
@@ -2405,19 +2418,19 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+       /* if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+        /*if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
             is_valid = false;
-        }
+        }*/
 
-        String flatsituated = Singleton.getInstance().indProperty.getFlatSituatedInFloor();
+        /*String flatsituated = Singleton.getInstance().indProperty.getFlatSituatedInFloor();
         if (Singleton.getInstance().indPropertyFloors.size() > 0) {
             stagespinner = Singleton.getInstance().indPropertyFloors.get(0).getConstructionStageId();
             percentagecomp = String.valueOf(Singleton.getInstance().indPropertyFloors.get(0).getPercentageCompletion());
-        }
+        }*/
 
         /*if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getTerraceArea())) {
             is_valid = false;
@@ -2427,7 +2440,7 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }*/
 
-        if (general.isEmpty(flatsituated)) {
+       /* if (general.isEmpty(flatsituated)) {
             is_valid = false;
         }
 
@@ -2440,9 +2453,9 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
         } else if (percentagecomp.equalsIgnoreCase("0")) {
             is_valid = false;
         }
-
+*/
         // Check the Measurment Image on kakode
-        boolean real_appraiser_jaipur = SettingsUtils.getInstance().getValue(SettingsUtils.real_appraiser_jaipur, false);
+       /* boolean real_appraiser_jaipur = SettingsUtils.getInstance().getValue(SettingsUtils.real_appraiser_jaipur, false);
         if (!real_appraiser_jaipur) {
             // Kakode
             if (Singleton.getInstance().GetImage_list_flat.size() == 0) {
@@ -2456,9 +2469,9 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                 // empty
                 is_valid = false;
             }
-        }
+        }*/
 
-        return is_valid;
+        return true;
     }
 
     private boolean flat_validation() {
@@ -2467,11 +2480,11 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
        /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
             is_valid = true;*/
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
-            is_valid = true;
+        /*if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
+            is_valid = true;*/
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
-            is_valid = false;
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
+            is_valid = false;*/
 
         /*if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
             is_valid = false;*/
@@ -2482,16 +2495,16 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }
 
-        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+        /*if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+        /*if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
             is_valid = false;
-        }
+        }*/
 
         //Check whether market price has values or not
-        if(general.isEmpty(Singleton.getInstance().indPropertyValuation.getTotalPropertyValue())
+       /* if(general.isEmpty(Singleton.getInstance().indPropertyValuation.getTotalPropertyValue())
          || Singleton.getInstance().getInstance().indPropertyValuation.getTotalPropertyValue().trim().equals("0")
         )
             is_valid = false;
@@ -2503,7 +2516,7 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
 
         if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getCarpetArea()))
-            is_valid = false;
+            is_valid = false;*/
 
         // PropertyAddress
       /*  if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress())) {
@@ -2511,19 +2524,19 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }*/
         // PropertyAddressAtSite
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
+        /*if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
             // empty
             is_valid = false;
-        }
-        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+        }*/
+        /*if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+        /*if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
             is_valid = false;
-        }
+        }*/
 
-        String flatsituated = Singleton.getInstance().indProperty.getFlatSituatedInFloor();
+      /*  String flatsituated = Singleton.getInstance().indProperty.getFlatSituatedInFloor();
         if (Singleton.getInstance().indPropertyFloors.size() > 0) {
             stagespinner = Singleton.getInstance().indPropertyFloors.get(0).getConstructionStageId();
             percentagecomp = String.valueOf(Singleton.getInstance().indPropertyFloors.get(0).getPercentageCompletion());
@@ -2531,20 +2544,20 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
         if (general.isEmpty(flatsituated)) {
             is_valid = false;
-        }
+        }*/
 
-        if (stagespinner == 0) {
+        /*if (stagespinner == 0) {
             is_valid = false;
-        }
+        }*/
 
-        if (general.isEmpty(percentagecomp)) {
+       /* if (general.isEmpty(percentagecomp)) {
             is_valid = false;
         } else if (percentagecomp.equalsIgnoreCase("0")) {
             is_valid = false;
-        }
+        }*/
 
         // Check the Measurment Image on kakode
-        boolean real_appraiser_jaipur = SettingsUtils.getInstance().getValue(SettingsUtils.real_appraiser_jaipur, false);
+        /*boolean real_appraiser_jaipur = SettingsUtils.getInstance().getValue(SettingsUtils.real_appraiser_jaipur, false);
         if (!real_appraiser_jaipur) {
             // Kakode
             if (Singleton.getInstance().GetImage_list_flat.size() == 0) {
@@ -2558,9 +2571,9 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
                 // empty
                 is_valid = false;
             }
-        }
+        }*/
 
-        if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getBuildUpArea())) {
+       /* if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getBuildUpArea())) {
             is_valid = false;
         }
 
@@ -2574,9 +2587,9 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
         if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getSuperBuildUpArea())) {
             is_valid = false;
-        }
+        }*/
 
-        return is_valid;
+        return true;
     }
 
 
@@ -2585,11 +2598,11 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
 
        /* if (general.isEmpty(Singleton.getInstance().aCase.getPropertyAddress()))
             is_valid = true;*/
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
-            is_valid = true;
+        /*if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite()))
+            is_valid = true;*/
 
-        if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
-            is_valid = false;
+        /*if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonName()))
+            is_valid = false;*/
 
        /* if (general.isEmpty(Singleton.getInstance().aCase.getContactPersonNumber()))
             is_valid = false;*/
@@ -2605,38 +2618,38 @@ public class OpenCaseAdapter extends RecyclerView.Adapter<OpenCaseAdapter.ViewHo
             is_valid = false;
         }*/
         // PropertyAddressAtSite
-        if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
+        /*if (general.isEmpty(Singleton.getInstance().property.getPropertyAddressAtSite())) {
             // empty
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
+        /*if(general.isEmpty(Singleton.getInstance().property.getLandmark())) {
             is_valid = false;
-        }
+        }*/
 
-        if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
+       /* if(general.isEmpty(Singleton.getInstance().property.getHabitationPercentageinLocality())){
             is_valid = false;
-        }
+        }*/
 
         // DocumentLandArea (Compound)
-        if (general.isEmpty(Singleton.getInstance().indProperty.getDocumentLandArea())) {
+      /*  if (general.isEmpty(Singleton.getInstance().indProperty.getDocumentLandArea())) {
             // empty
             is_valid = false;
-        }
+        }*/
         // MeasuredLandArea (Permissible area)
-        if (general.isEmpty(Singleton.getInstance().indProperty.getMeasuredLandArea())) {
+       /* if (general.isEmpty(Singleton.getInstance().indProperty.getMeasuredLandArea())) {
             // empty
             is_valid = false;
-        }
+        }*/
 
-        if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getDocumentLandRate())) {
+       /* if (general.isEmpty(Singleton.getInstance().indPropertyValuation.getDocumentLandRate())) {
             is_valid = false;
         }
         if (Singleton.getInstance().indProperty.getDocumentLandAreaUnit() == 0) {
             is_valid = false;
-        }
+        }*/
 
-        return is_valid;
+        return true;
     }
 
     /* Document Popup */

@@ -381,7 +381,7 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
 
 
         if (Singleton.getInstance().enable_validation_error){
-            if (general.isEmpty(editText_compound_permissiblearea.getText().toString())){
+            /*if (general.isEmpty(editText_compound_permissiblearea.getText().toString())){
                 editText_compound_permissiblearea.setError("Document area required!");
                 editText_compound_permissiblearea.requestFocus();
             }
@@ -395,8 +395,8 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
                 textview_measurement_doc.setError("Measurement required!");
                 textview_measurement_doc.requestFocus();
             }
-
-            if (general.isEmpty(editText_floors_measu.getText().toString())){
+*/
+            /*if (general.isEmpty(editText_floors_measu.getText().toString())){
                 editText_floors_measu.setError("Enter number of floors!");
                 editText_floors_measu.requestFocus();
             }
@@ -404,7 +404,7 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
             if (Singleton.getInstance().indProperty.getNoOfFloors()!=Singleton.getInstance().indPropertyFloors.size()){
                 editText_floors_measu.setError("Generate given number of floors!");
                 editText_floors_measu.requestFocus();
-            }
+            }*/
         }
 
 
@@ -1026,14 +1026,14 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
         boolean checkvalidation = true;
 
         // compound_permissiblearea
-        String comp_permissiblearea = editText_compound_permissiblearea.getText().toString();
+       /* String comp_permissiblearea = editText_compound_permissiblearea.getText().toString();
         if (!general.isEmpty(comp_permissiblearea)) {
             editText_compound_permissiblearea.setError(null);
         } else {
             editText_compound_permissiblearea.requestFocus();
             editText_compound_permissiblearea.setError(getResources().getString(R.string.err_comp_permis));
-            checkvalidation = false;
-        }
+            checkvalidation = true;
+        }*/
         // as_per_measurement
         String aspermeasurement = editText_as_per_measurement.getText().toString();
         if (!general.isEmpty(aspermeasurement)) {
@@ -1192,21 +1192,21 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
 
 
         // compound_permissiblearea
-        String comp_permissiblearea = editText_compound_permissiblearea.getText().toString();
+        /*String comp_permissiblearea = editText_compound_permissiblearea.getText().toString();
         if (!general.isEmpty(comp_permissiblearea)) {
             editText_compound_permissiblearea.setError(null);
         } else {
             editText_compound_permissiblearea.requestFocus();
             editText_compound_permissiblearea.setError(getResources().getString(R.string.err_comp_permis));
-        }
+        }*/
         // as_per_measurement
-        String aspermeasurement = editText_as_per_measurement.getText().toString();
+       /* String aspermeasurement = editText_as_per_measurement.getText().toString();
         if (!general.isEmpty(aspermeasurement)) {
             editText_as_per_measurement.setError(null);
         } else {
             editText_as_per_measurement.requestFocus();
             editText_as_per_measurement.setError(getResources().getString(R.string.err_aspermeasu));
-        }
+        }*/
 
         // Nooffloors
         String floor_no = editText_floors_measu.getText().toString();
@@ -1215,14 +1215,14 @@ FragmentBuilding extends Fragment implements View.OnClickListener {
 
             int measurementland = spinner_measurement1.getSelectedItemPosition();
             //int measurementconstruction = spinner_measurement2.getSelectedItemPosition();
-            if (measurementland == 0) {
+           /* if (measurementland == 0) {
                 // measurementland
                 editText_floors_measu.requestFocus();
 
                 textview_error_measure_land.setVisibility(View.VISIBLE);
                 //((TextView) spinner_measurement1.getSelectedView()).setError(getResources().getString(R.string.err_measure_land));
                 //general.CustomToast(getResources().getString(R.string.err_measure_land));
-            }
+            }*/
 
             // Check all values
             ArrayList<IndPropertyFloor> floor_list = new ArrayList<>();

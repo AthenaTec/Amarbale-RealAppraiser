@@ -125,7 +125,7 @@ public class FragmentLand extends Fragment {
         if (Singleton.getInstance().enable_validation_error) {
             set_mandatory_land();
 
-            if (general.isEmpty(editText_compound_permissiblearea_land.getText().toString())){
+           /* if (general.isEmpty(editText_compound_permissiblearea_land.getText().toString())){
                 editText_compound_permissiblearea_land.setError("Document area required!");
                 editText_compound_permissiblearea_land.requestFocus();
             }
@@ -136,7 +136,7 @@ public class FragmentLand extends Fragment {
             if (spinner_measurementland.getSelectedItemPosition()==0){
                 textview_measurement_doc.setError("measurement  required!");
                 textview_measurement_doc.requestFocus();
-            }
+            }*/
         }
 
         return view;
@@ -290,14 +290,14 @@ public class FragmentLand extends Fragment {
         String stagespinner = spinner_measurementland.getSelectedItem().toString();
         String percentagecomp = editText_land_measurement_land.getText().toString();
 
-        if (!general.isEmpty(flatsituated)) {
+        /*if (!general.isEmpty(flatsituated)) {
             editText_compound_permissiblearea_land.setError(null);
         } else {
             editText_compound_permissiblearea_land.requestFocus();
             editText_compound_permissiblearea_land.setError(getActivity().getResources().getString(R.string.error_land_comd));
-        }
+        }*/
 
-        if (stagespinner.equalsIgnoreCase("Select")) {
+       /* if (stagespinner.equalsIgnoreCase("Select")) {
             //   ((TextView)  FragmentLand.spinner_measurementland.getSelectedView()).setError(getActivity().getResources().getString(R.string.error_land_mease_unit));
             editText_land_measurement_land.requestFocus();
         }
@@ -307,7 +307,7 @@ public class FragmentLand extends Fragment {
         } else {
             editText_land_measurement_land.requestFocus();
             editText_land_measurement_land.setError(getActivity().getResources().getString(R.string.error_land_mease));
-        }
+        }*/
 
 
     }

@@ -3839,11 +3839,11 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
                 PhotoLatLong.longvalue.setError(getResources().getString(R.string.error_long));
             }
 
-            if (PhotoLatLong.GetPhoto_list_response.size() <= 2) {
+            /*if (PhotoLatLong.GetPhoto_list_response.size() <= 2) {
                 // Picture less than one
                 isvalid = false;
                 general.CustomToast(getResources().getString(R.string.error_oneimage));
-            }
+            }*/
 
         }
         return isvalid;
@@ -3860,15 +3860,15 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             editText_addr_perdoc.setError(getResources().getString(R.string.err_addperdoc));
             isvalid = false;
         }*/
-        // Address site
-        String addr_site = editText_addr_site.getText().toString();
+        // Address site - disable mandatory fields
+       /* String addr_site = editText_addr_site.getText().toString();
         if (!general.isEmpty(addr_site)) {
             editText_addr_site.setError(null);
         } else {
             editText_addr_site.requestFocus();
             editText_addr_site.setError(getResources().getString(R.string.err_addrsite));
             isvalid = false;
-        }
+        }*/
 
 
 
@@ -3877,10 +3877,10 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
 
     private void set_mandatory_address() {
 
-        if (general.isEmpty(etPersonName.getText().toString())) {
+        /*if (general.isEmpty(etPersonName.getText().toString())) {
             etPersonName.setError("Name required!");
             etPersonName.requestFocus();
-        }
+        }*/
 
       /*  if (general.isEmpty(etPersonNo.getText().toString())) {
             etPersonNo.setError("Phone number required!");
@@ -3896,7 +3896,7 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
         }*/
         // Address site
         String addr_site = editText_addr_site.getText().toString();
-        if (!general.isEmpty(addr_site)) {
+       /* if (!general.isEmpty(addr_site)) {
             editText_addr_site.setError(null);
         } else
         {
@@ -3907,49 +3907,49 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
                 @Override
                 public void run() {
                     scroll_view.scrollTo(0, 0);
-                    /*****Scroll to top of position******/
+                    *//*****Scroll to top of position******//*
                     int nY_Pos = editText_addr_site.getTop(); // getBottom(); X_pos  getLeft(); getRight();
                     scroll_view.scrollTo(0, nY_Pos);
 
                 }
             }, 2000);
         }
+*/
 
-
-        if (general.isEmpty(editText_landmark.getText().toString())) {
+        /*if (general.isEmpty(editText_landmark.getText().toString())) {
             editText_landmark.setError("Landmark required!");
             editText_landmark.requestFocus();
         }else{
             editText_landmark.setError(null);
-        }
+        }*/
 
 
-        if(String.valueOf(et_residential_usage.getText()).trim().isEmpty()){
+        /*if(String.valueOf(et_residential_usage.getText()).trim().isEmpty()){
             et_residential_usage.requestFocus();
             et_residential_usage.setError("Please Enter Resident Usage");
-        }
-        if(String.valueOf(et_commercial_usage.getText()).trim().isEmpty()){
+        }*/
+        /*if(String.valueOf(et_commercial_usage.getText()).trim().isEmpty()){
             et_commercial_usage.requestFocus();
             et_commercial_usage.setError("Please Enter Commercial Usage");
-        }
+        }*/
         /*if(String.valueOf(et_installation_favour_of.getText()).trim().isEmpty()){
             et_installation_favour_of.requestFocus();
             et_installation_favour_of.setError("Please Enter Installation Favour Of");
         }else{
             et_person_met_at_site.setError(null);
         }*/
-        if(String.valueOf(et_person_met_at_site.getText()).trim().isEmpty()){
+        /*if(String.valueOf(et_person_met_at_site.getText()).trim().isEmpty()){
             et_person_met_at_site.requestFocus();
             et_person_met_at_site.setError("Please Enter Person Met At Site");
         }else{
             et_person_met_at_site.setError(null);
-        }
-        if(String.valueOf(et_approach_road_width.getText()).trim().isEmpty()){
+        }*/
+        /*if(String.valueOf(et_approach_road_width.getText()).trim().isEmpty()){
             et_approach_road_width.requestFocus();
             et_approach_road_width.setError("Please Enter Approach Road Width");
         }else{
             et_approach_road_width.setError(null);
-        }
+        }*/
 
 
         /*if(et_electricity_meter_no.getText().toString().trim().isEmpty()){
@@ -3959,12 +3959,12 @@ public class OtherDetails extends Fragment implements View.OnClickListener, Othe
             et_electricity_meter_no.setError(null);
         }*/
 
-         if(et_habitation.getText().toString().trim().isEmpty()){
+         /*if(et_habitation.getText().toString().trim().isEmpty()){
              et_habitation.requestFocus();
              et_habitation.setError("Please Enter Habitation % in locality");
         }else{
              et_habitation.setError(null);
-        }
+        }*/
 
        /* String property_cate_id = SettingsUtils.getInstance().getValue(SettingsUtils.PropertyCategoryId, "");
 

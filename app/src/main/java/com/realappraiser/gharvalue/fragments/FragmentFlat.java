@@ -1000,7 +1000,7 @@ public class FragmentFlat extends Fragment implements View.OnTouchListener {
         String stagespinner = stageSpinner.getSelectedItem().toString();
         String percentagecomp = edittext_general_comp.getText().toString();
 
-        if (!general.isEmpty(flatsituated)) {
+       /* if (!general.isEmpty(flatsituated)) {
             editText_flatsituatedinfloor.setError(null);
         } else {
             editText_flatsituatedinfloor.requestFocus();
@@ -1036,7 +1036,7 @@ public class FragmentFlat extends Fragment implements View.OnTouchListener {
             edittext_general_carpetarea.requestFocus();
         }
 
-    }
+*/    }
 
 
     private void setFloorNoInternals(ArrayList<InternalFloorModel> internalFloorModels) {

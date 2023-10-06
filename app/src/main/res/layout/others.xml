@@ -2284,7 +2284,7 @@
                                         android:id="@+id/et_habitation"
                                         android:layout_height="wrap_content"
                                         android:layout_width="match_parent"
-                                        android:hint="*Habitation % in locality"
+                                        android:hint="Habitation % in locality"
                                         android:inputType="number"
                                         android:maxLength="3"
                                         android:textSize="@dimen/_11sdp"

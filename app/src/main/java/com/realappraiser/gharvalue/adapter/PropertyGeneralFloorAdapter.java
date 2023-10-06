@@ -731,15 +731,15 @@ public class PropertyGeneralFloorAdapter extends RecyclerView.Adapter<PropertyGe
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
 
-        if (Singleton.getInstance().enable_validation_error){
+        /*if (Singleton.getInstance().enable_validation_error){
             if (general.isEmpty(steps.get(position).getMeasuredFloorArea())){
                 holder.edittext_general_actual_area.setError("actual area required!");
                 holder.edittext_general_actual_area.requestFocus();
             }
-        }
+        }*/
 
         // Cursor
-        if (Docarea_cursor) {
+       /* if (Docarea_cursor) {
             String propertyAge = String.valueOf(steps.get(position).getPropertyAge());
             if (general.isEmpty(propertyAge)) {
                 Docarea_cursor = false;
@@ -762,7 +762,7 @@ public class PropertyGeneralFloorAdapter extends RecyclerView.Adapter<PropertyGe
                 holder.edittext_general_comp.setError("Completion required!");
                 holder.edittext_general_comp.requestFocus();
             }
-        }
+        }*/
 
         String floorname = steps.get(position).getFloorName();
         if (!general.isEmpty(floorname)) {
@@ -832,7 +832,7 @@ public class PropertyGeneralFloorAdapter extends RecyclerView.Adapter<PropertyGe
             holder.edittext_general_life.setText("");
         }
 
-        if (Singleton.getInstance().enable_validation_error){
+        /*if (Singleton.getInstance().enable_validation_error){
             if (general.isEmpty(steps.get(position).getDocumentFloorArea())){
                 holder.edittext_general_doc_area.setError("Sanction area required!");
                 holder.edittext_general_doc_area.requestFocus();
@@ -848,7 +848,7 @@ public class PropertyGeneralFloorAdapter extends RecyclerView.Adapter<PropertyGe
                 holder.edittext_general_actual_area.requestFocus();
             }
 
-        }
+        }*/
 
         //holder.spinner_stage.setSelection(steps.get(position).getConstructionStageId());
 

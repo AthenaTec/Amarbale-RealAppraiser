@@ -91,8 +91,8 @@
     <string name="next">NEXT</string>
     <string name="address">ADDRESS</string>
     <string name="addr_perdoc">Address per document</string>
-    <string name="addr_site">Address at Site/Actual*</string>
-    <string name="landmark">*Landmark</string>
+    <string name="addr_site">Address at Site/Actual</string>
+    <string name="landmark">Landmark</string>
     <string name="offlinecaselimited">Select the offline cases are equal to </string>
     <string name="alreadyexceeded">Maximum offline cases reached! </string>
     <string name="select_one_case">Select atleast one case</string>
@@ -145,15 +145,15 @@
     <string name="is_compounded">Is Compounded?</string>
     <string name="land_measurement">Land Measurement:</string>
     <!--<string name="compound_permissiblearea">Compound / Permissible Area*</string>-->
-    <string name="compound_permissiblearea">Document Area*</string>
-    <string name="as_per_measurement">As Per Measurement*</string>
+    <string name="compound_permissiblearea">Document Area</string>
+    <string name="as_per_measurement">As Per Measurement</string>
     <string name="as_per_docs">As Per Document*</string>
-    <string name="person_met_at_site">*Person Met at site</string>
-    <string name="appraoch_road_width">*Approach road width</string>
+    <string name="person_met_at_site">Person Met at site</string>
+    <string name="appraoch_road_width">Approach road width</string>
     <string name="measurement">Measurement</string>
     <string name="construction_details">Construction Details:</string>
-    <string name="floors">#Floor(s)*</string>
-    <string name="approved_floors">#Approved Floors(s)*</string>
+    <string name="floors">#Floor(s)</string>
+    <string name="approved_floors">#Approved Floors(s)</string>
     <string name="actual_usage" tools:ignore="UnusedResources">Actual Usage</string>
     <string name="Floor_details">Floor Details</string>
     <string name="land_area" tools:ignore="UnusedResources">Land Area</string>
@@ -162,7 +162,7 @@
     <string name="totalapartment_no_floors_ka">Total No of Floors</string>
     <string name="totalflatsperfloor">Flat / Floor</string>
     <string name="totalflatsperfloor_ka">Total Flats Per Floor</string>
-    <string name="flatsituatedinfloor">Flat in Floors*</string>
+    <string name="flatsituatedinfloor">Flat in Floors</string>
     <string name="flatsituatedinfloor_ka">Flat Situated In Floor*</string>
     <string name="plot_area">Plot Area</string>
     <string name="units">Unit</string>
@@ -171,8 +171,8 @@
     <string name="generl_info" tools:ignore="UnusedResources">General Info:</string>
     <string name="floor_name">Floor Name*</string>
     <string name="floor_">Floor*</string>
-    <string name="stage">Stage*</string>
-    <string name="comp" tools:ignore="StringFormatInvalid">%Comp*</string>
+    <string name="stage">Stage</string>
+    <string name="comp" tools:ignore="StringFormatInvalid">%Comp</string>
     <string name="progress">Progress</string>
     <string name="doc_area">Doc Area</string>
     <string name="per_area">Sanctioned Area</string>
@@ -531,8 +531,8 @@
     <string name="deleted_successfully">Deleted SuccessFully</string>
     <string name="unable_to_delete">Unable to Delete File</string>
 
-    <string name="resident_usage">*% Residential Usage in Property</string>
-    <string name="commercial_usage">*% Commercial Usage in Property</string>
+    <string name="resident_usage">% Residential Usage in Property</string>
+    <string name="commercial_usage">% Commercial Usage in Property</string>
     <string name="installation_favour_of">Installation in favor of</string>
 
     <array name="compare">

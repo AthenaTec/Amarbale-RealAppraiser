@@ -721,7 +721,7 @@ public class PhotoLatLong extends Fragment implements
 
 
         if (GetPhoto_list_response.size() <= 2) {
-            textview_error_photo.setVisibility(View.VISIBLE);
+            textview_error_photo.setVisibility(View.GONE);
         } else {
             textview_error_photo.setVisibility(View.GONE);
         }
@@ -814,23 +814,23 @@ public class PhotoLatLong extends Fragment implements
             longvalue.setError(getResources().getString(R.string.error_long));
             Singleton.getInstance().latlong_valid = true;
         }
-        if (GetPhoto_list_response.size() <= 2) {
+       /* if (GetPhoto_list_response.size() <= 2) {
             textview_error_photo.setVisibility(View.VISIBLE);
             Singleton.getInstance().photo_valid = true;
             general.hideloading();
         } else {
             Singleton.getInstance().photo_valid = false;
             general.hideloading();
-        }
+        }*/
     }
 
 
     private void pagerphotolatlng_validation() {
         if (Singleton.getInstance().latlong_valid) {
             PhotoLatLngTab.pager.setCurrentItem(0);
-        } else if (Singleton.getInstance().photo_valid) {
+        } /*else if (Singleton.getInstance().photo_valid) {
             PhotoLatLngTab.pager.setCurrentItem(0);
-        } else {
+        } */else {
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
@@ -2579,11 +2579,11 @@ public class PhotoLatLong extends Fragment implements
 
 
     private  void showImageErrorText(){
-        if(GetPhoto_list_response.size()<=2){
+       /* if(GetPhoto_list_response.size()<=2){
             textview_error_photo.setVisibility(View.VISIBLE);
         }else{
             textview_error_photo.setVisibility(View.GONE);
-        }
+        }*/
     }
 
 }

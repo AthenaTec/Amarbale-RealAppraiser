@@ -910,11 +910,10 @@ public class FragmentValuationBuilding extends Fragment implements RatePopupupIn
         }
 
         if (Singleton.getInstance().enable_validation_error) {
-            if (general.isEmpty(editText_rate_permissiblearea.getText().toString())) {
+            /*if (general.isEmpty(editText_rate_permissiblearea.getText().toString())) {
                 editText_rate_permissiblearea.setError("Value required!");
                 editText_rate_permissiblearea.requestFocus();
-            }
-
+            }*/
 
             /*boolean isCarpetError = false;
              if(spinner_carpet!=null && spinner_carpet.getText().toString().trim().equalsIgnoreCase(getResources().getString(R.string.select))){
